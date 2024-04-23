@@ -23,7 +23,9 @@ class Program
                     1 - enter vehicle
                     2 - deactivate vehicle
                     3 - list vehicles
-                    4 - enter bulk vehicles");
+                    4 - remove a vehicle
+                    5 - enter bulk vehicles
+                    6 - search");
 
                     intMenuResponse = Convert.ToInt16(Console.ReadLine());
 
@@ -69,38 +71,32 @@ class Program
                                 intI1++;
                             }
                             break;
-                        case 4: //enter bulk vehicles
+                        case 4: //remove a vehicle
+                            Console.WriteLine("Please enter the Vehicle's Indes Number to remove");
+                            Vehicles.RemoveAt(Convert.ToInt16(Console.ReadLine()));
+                            break;
+                        case 5: //enter bulk vehicles
                             //vehicle 0
-                            Vehicles.Add(new Vehicle());
-                            Vehicles[0].PolicyId = 1234;
-                            Vehicles[0].year = 2018;
-                            Vehicles[0].make = "Ford";
-                            Vehicles[0].model = "F150";
-                            Vehicles[0].Active = true;
+                            Vehicles.Add(new Vehicle() {PolicyId = 1234, year = 2018, make = "Ford", model = "F150", Active = true});
 
                             //vehicle 1
-                            Vehicles.Add(new Vehicle());
-                            Vehicles[1].PolicyId = 1234;
-                            Vehicles[1].year = 2015;
-                            Vehicles[1].make = "Honda";
-                            Vehicles[1].model = "Accord";
-                            Vehicles[1].Active = true;
+                            Vehicles.Add(new Vehicle() {PolicyId = 1234, year = 2015, make = "Honda", model = "Accord", Active = true});
 
                             //vehicle 2
-                            Vehicles.Add(new Vehicle());
-                            Vehicles[2].PolicyId = 1234;
-                            Vehicles[2].year = 2010;
-                            Vehicles[2].make = "Volkswagon";
-                            Vehicles[2].model = "Jetta";
-                            Vehicles[2].Active = true;
+                            Vehicles.Add(new Vehicle() {PolicyId = 1234, year = 2010, make = "Volkswagon", model = "Jetta", Active = true});
 
                             //vehicle 3
-                            Vehicles.Add(new Vehicle());
-                            Vehicles[3].PolicyId = 5678;
-                            Vehicles[3].year = 2020;
-                            Vehicles[3].make = "Honda";
-                            Vehicles[3].model = "Civic";
-                            Vehicles[3].Active = true;
+                            Vehicles.Add(new Vehicle() {PolicyId = 5678, year = 2020, make = "Honda", model = "Civic", Active = true});
+
+                            break;
+                        case 6: //search
+                            int intIndex;
+                            string strMake;
+                            Console.WriteLine("What are you searching for?");
+                            strMake = Console.ReadLine().ToLower();
+                            intIndex = Vehicles.FindIndex(f => f.make.ToLower().Equals(strMake));
+
+                            Console.Write($"The Make {strMake} is found at Index {intIndex} ");
 
                             break;
 
