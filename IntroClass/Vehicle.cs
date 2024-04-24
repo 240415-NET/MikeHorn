@@ -8,12 +8,12 @@ class Vehicle
     public string make {get; set;}
     public string model {get; set;}
     public bool Active {get; set;}
-    private int VehicleNumber {get; set;}
+    public int VehicleNumber {get; set;}
 
     //Methods
-    // public int Policy_Vehicle_Count(int Policy)
-    // {
-    //     return;
-    // }
+    public static bool Toggle_Active(bool Active_Deactive)
+    {
+        return !Active_Deactive;
+    }
 
 }

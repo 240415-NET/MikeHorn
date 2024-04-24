@@ -21,7 +21,7 @@ class Program
                     Console.WriteLine(@"What would you like to do?
                     0 - exit
                     1 - enter vehicle
-                    2 - deactivate vehicle
+                    2 - toggle vehicle's active status
                     3 - list vehicles
                     4 - remove a vehicle
                     5 - enter bulk vehicles
@@ -55,8 +55,10 @@ class Program
 
                             break;
                         case 2: //deactivate vehicle
-                            Console.WriteLine("Please enter the Vehicle's Indes Number to deactivate");
-                            Vehicles[Convert.ToInt16(Console.ReadLine())].Active = false;
+                            Console.WriteLine("Please enter the Vehicle's Indes Number to toggle its activate status");
+                            int intIndex2;
+                            intIndex2 = Convert.ToInt16(Console.ReadLine());
+                            Vehicles[intIndex2].Active = Vehicle.Toggle_Active(Vehicles[intIndex2].Active);
                             break;
                         case 3: //list vehicles
                             int intI1 = 0;
