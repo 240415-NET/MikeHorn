@@ -42,7 +42,6 @@ class Vehicle
                 this.year = year;
                 break;
         }
-        this.year = year;
     }
 
     //make
