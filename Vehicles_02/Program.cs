@@ -73,17 +73,10 @@ class Program
 
                             break;
                         case 3: //list vehicles
-                            int intI1 = 0;
                             foreach(Vehicle v in Vehicles)
                             {
-                                Console.WriteLine ("Index = " + intI1 + " " + v);
-                                // string strActive = "Active";
-                                // if(!v.Active)
-                                // {
-                                //     strActive = "Deactive";
-                                // }
-                                // Console.WriteLine($"Index = {intI1} Policy {v.PolicyId} Year {v.year} Make {v.make} Model {v.model} Active {strActive}");
-                                intI1++;
+                                Console.WriteLine ("Index = " + Vehicles.IndexOf(v) + " " + v);
+
                             }
                             break;
                         case 4: //remove a vehicle
