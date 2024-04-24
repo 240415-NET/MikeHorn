@@ -119,6 +119,6 @@ class Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Index: {VehicleNumber} Policy: {PolicyId} Year: {year} Make: {make} Model: {model} Status: {VehicleStatusValue}";
+        return $"Policy: {PolicyId} Year: {year} Make: {make} Model: {model} Status: {VehicleStatusValue} Vehicle Number: {VehicleNumber} ";
     }
 }

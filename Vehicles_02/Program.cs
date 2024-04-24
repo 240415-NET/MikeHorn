@@ -58,6 +58,7 @@ class Program
 
                             Vehicles[Vehicles.Count() - 1].SetVehicleNumber(Vehicles.Count());
 
+
                             break;
                         case 2: //toggle vehicle's active status
                             Console.WriteLine("Please enter the Vehicle's Indes Number to toggle its activate status");
@@ -72,17 +73,17 @@ class Program
 
                             break;
                         case 3: //list vehicles
-                            // int intI1 = 0;
+                            int intI1 = 0;
                             foreach(Vehicle v in Vehicles)
                             {
-                                Console.WriteLine(v);
+                                Console.WriteLine ("Index = " + intI1 + " " + v);
                                 // string strActive = "Active";
                                 // if(!v.Active)
                                 // {
                                 //     strActive = "Deactive";
                                 // }
                                 // Console.WriteLine($"Index = {intI1} Policy {v.PolicyId} Year {v.year} Make {v.make} Model {v.model} Active {strActive}");
-                                // intI1++;
+                                intI1++;
                             }
                             break;
                         case 4: //remove a vehicle
