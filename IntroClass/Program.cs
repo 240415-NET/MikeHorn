@@ -1,5 +1,7 @@
 ﻿namespace IntroClass;
 
+using System.Linq;
+
 class Program
 {
     static void Main(string[] args)
@@ -25,7 +27,8 @@ class Program
                     3 - list vehicles
                     4 - remove a vehicle
                     5 - enter bulk vehicles
-                    6 - search");
+                    6 - search
+                    7 - search with LINQ");
 
                     intMenuResponse = Convert.ToInt16(Console.ReadLine());
 
@@ -54,7 +57,7 @@ class Program
                             Vehicles[Vehicles.Count() - 1].Active = true;
 
                             break;
-                        case 2: //deactivate vehicle
+                        case 2: //toggle vehicle's active status
                             Console.WriteLine("Please enter the Vehicle's Indes Number to toggle its activate status");
                             int intIndex2;
                             intIndex2 = Convert.ToInt16(Console.ReadLine());
@@ -99,6 +102,22 @@ class Program
                             intIndex = Vehicles.FindIndex(f => f.make.ToLower().Equals(strMake));
 
                             Console.Write($"The Make {strMake} is found at Index {intIndex} ");
+
+                            break;
+                        case 7: //search with LINQ
+                            
+                            Console.WriteLine("What are you searching for?");
+                            strMake = Console.ReadLine().ToLower();
+
+                            // LINQ Query
+                            var subsetVehicles = from theVehicle in Vehicles
+                                        where theVehicle.make.ToLower() == strMake
+                                        select theVehicle;
+                            
+                            foreach(Vehicle theVehicle in subsetVehicles)
+                            {
+                                Console.WriteLine($"Policy {theVehicle.PolicyId} Year {theVehicle.year} Make {theVehicle.make} Model {theVehicle.model} Active {theVehicle.Active}");
+                            }
 
                             break;
 
