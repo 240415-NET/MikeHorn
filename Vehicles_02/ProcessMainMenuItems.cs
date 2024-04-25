@@ -9,8 +9,9 @@ class ProcessMainMenuItems
         foreach(Vehicle v in Vehicles)
         {
             Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
-
         }
+
+        Console.WriteLine(" \n");
     }
 
     public void EnterVehicle(List<Vehicle> Vehicles)
@@ -33,10 +34,11 @@ class ProcessMainMenuItems
 
         Vehicles[Vehicles.Count() - 1].SetVehicleNumber(Vehicles.Count());
 
-        Console.WriteLine("Vehicle has now been added");
+        Console.WriteLine("Vehicle has now been added \n");
     }
     public void BulkVehicles(List<Vehicle> Vehicles)
     {
+        //Full Constructor
         //vehicle 0
         Vehicles.Add(new Vehicle(1234, 2018, "Ford", "F150", true, Vehicles.Count()));
 
@@ -49,14 +51,21 @@ class ProcessMainMenuItems
         //vehicle 3
         Vehicles.Add(new Vehicle(5678, 2020, "Honda", "Civic", true, Vehicles.Count()));
 
-        Console.WriteLine("Bulk vehicles have been added");
+        //Partial Constructor
+        //Vehicle 4
+        Vehicles.Add(new Vehicle(5678, 2014, "Acura", "ILX"));
+
+        //Vehicle 5
+        Vehicles.Add(new Vehicle(9876, 2016, "Hyundai", "Sonata"));
+
+        Console.WriteLine("Bulk vehicles have been added \n");
     }
 
     public void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)
     {
         Vehicles.RemoveAt(intIndex);
 
-        Console.WriteLine("Vehicle has now been removed");
+        Console.WriteLine("Vehicle has now been removed \n");
     }
     public void ToggleVehicleStatus(List<Vehicle> Vehicles, int intIndex)
     {
@@ -65,7 +74,7 @@ class ProcessMainMenuItems
 
         Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
 
-        Console.WriteLine("Vehicle's Active Status has now been changed");
+        Console.WriteLine("Vehicle's Active Status has now been changed \n");
     }
 
 }

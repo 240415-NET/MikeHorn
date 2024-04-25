@@ -89,21 +89,29 @@ class Vehicle
     }
 
     //Constructors
-    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber)
+    public Vehicle()
+    {
+
+    }
+
+    public Vehicle(int PolicyId, int year, string make, string model)
     {
         SetPolicyId(PolicyId);
         Setyear(year);
         Setmake(make);
         Setmodel(model);
+
+    }
+
+    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber) : this(PolicyId, year, make,model)
+    {
+
         SetVehicleStatus(VehicleStatus);
         SetVehicleNumber(VehicleNumber);
 
     }
 
-    public Vehicle()
-    {
 
-    }
 
     //Methods
     public static bool Toggle_VehicleStatus(bool VehicleStatus)

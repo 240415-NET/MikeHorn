@@ -25,7 +25,6 @@ public class Menu
             {
                 ProcessMainMenu(Convert.ToInt16(strMenuSelection));
             }
-        // }while (!ValidateMenuInput(strMenuSelection, MainMenuItems));
         }while (Continue);
 
     }
@@ -42,7 +41,7 @@ public class Menu
     public void ProcessMainMenu(int intMenuSelection)
     {
         ProcessMainMenuItems ProcessMenu = new();
-        
+        Console.WriteLine(" \n");
 
         try
         {
@@ -63,7 +62,7 @@ public class Menu
 
                     break;
                 case 4: //toggle vehicle's active status
-                    Console.WriteLine("Please enter the Vehicle's Indes Number to toggle its activate status");
+                    Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
                     ProcessMenu.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
@@ -84,7 +83,7 @@ public class Menu
     {
         try
         {
-            if (Convert.ToInt16(MenuSelection) == 0 && Convert.ToInt16(MenuSelection) <= MenuItems.Count() - 1)
+            if (Convert.ToInt16(MenuSelection) >= 0 && Convert.ToInt16(MenuSelection) <= MenuItems.Count() - 1)
             {
                 return true;
             }
