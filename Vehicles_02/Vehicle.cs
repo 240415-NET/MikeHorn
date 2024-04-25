@@ -3,12 +3,12 @@ namespace Vehicles_02;
 class Vehicle
 {
     //Fields
-    private int PolicyId = 0;
-    private int year = 1900;
-    private string make = "";
-    private string model = "";
-    private bool VehicleStatus = true; //true = active, false = inactive
-    private int VehicleNumber = 1;
+    protected int PolicyId = 0;
+    protected int year = 1900;
+    protected string make = "";
+    protected string model = "";
+    protected bool VehicleStatus = true; //true = active, false = inactive
+    protected int VehicleNumber = 1;
 
     //Getters and Setters
     //Policy Id

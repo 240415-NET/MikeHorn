@@ -1,4 +1,5 @@
-﻿namespace Vehicles_02;
+﻿/*
+namespace Vehicles_02;
 
 using System.Linq;
 
@@ -143,4 +144,4 @@ class Program
  
     }
 }
-
+*/
