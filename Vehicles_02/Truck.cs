@@ -56,7 +56,7 @@ class Truck : Vehicle
         }
         else
         {
-            this.TruckType = "Box";
+            this.TruckType = "Flatbed Truck";
         }
         
     }

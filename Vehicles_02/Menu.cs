@@ -29,7 +29,7 @@ public class Menu
 
     }
 
-    private void PrintMenu(List<string> MenuItems)
+    private static void PrintMenu(List<string> MenuItems)
     {
         foreach(string Item in MenuItems)
         {
@@ -51,24 +51,24 @@ public class Menu
                     Continue = false;
                     break;
                 case 1: //list vehicles
-                    ProcessMenu.ListVehicles(Vehicles);
+                    ProcessMainMenuItems.ListVehicles(Vehicles);
                     break;
                 case 2: //enter vehicle
-                    ProcessMenu.EnterVehicle(Vehicles);
+                    ProcessMainMenuItems.EnterVehicle(Vehicles);
                     break;
                 case 3: //remove a vehicle
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
-                    ProcessMenu.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessMainMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
                     break;
                 case 4: //toggle vehicle's active status
                     Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
-                    ProcessMenu.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessMainMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
                     break;
                 case 5: //enter bulk vehicles
-                    ProcessMenu.BulkVehicles(Vehicles);
+                    ProcessMainMenuItems.BulkVehicles(Vehicles);
                     break;
             }
         }
@@ -79,7 +79,7 @@ public class Menu
         }
     }
 
-    bool ValidateMenuInput(string MenuSelection, List<string> MenuItems)
+    static bool ValidateMenuInput(string MenuSelection, List<string> MenuItems)
     {
         try
         {
