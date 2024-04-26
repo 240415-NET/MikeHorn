@@ -3,7 +3,20 @@ namespace Vehicles_02;
 class Truck : Vehicle
 {
     private int NumberWheels = 4;
-    private string TruckType = "Box";
+    private string TruckType = "Flatbed Truck";
+
+    //Constructors
+    public Truck()
+    {
+
+    }
+
+    public Truck(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber, int NumberWheels, string TruckType) 
+    : base(PolicyId, year, make, model, VehicleStatus, VehicleNumber)
+    {
+        SetNumberWheels(NumberWheels);
+        SetTruckType(TruckType);
+    }
 
     //Getters and Setters
     //NumberWheels
@@ -36,7 +49,7 @@ class Truck : Vehicle
 
     public void SetTruckType(string TruckType)
     {
-        List<string> AllowableTruckTypes = new List<string>{"Tractor Trailer", "Box", "Flatbed", "Dump", "Garbage", "Cement"};
+        List<string> AllowableTruckTypes = new List<string>{"Car Carrier", "Cement Mixer", "Flatbed Truck", "Garbage Truck", "Refrigerated Truck", "Tow Truck - one axle", "Tow Truck- two axle"};
         if(AllowableTruckTypes.Contains(TruckType))
         {
             this.TruckType = TruckType;
@@ -48,19 +61,7 @@ class Truck : Vehicle
         
     }
 
-    //Constructors
-    public Truck()
-    {
-
-    }
-
-    public Truck(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber, int NumberWheels, string TruckType) 
-    : base(PolicyId, year, make, model, VehicleStatus, VehicleNumber)
-    {
-        SetNumberWheels(NumberWheels);
-        SetTruckType(TruckType);
-    }
-
+    
     public override string ToString()
     {
         string VehicleStatusValue = "Active";

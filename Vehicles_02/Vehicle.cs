@@ -10,6 +10,30 @@ class Vehicle
     protected bool VehicleStatus = true; //true = active, false = inactive
     protected int VehicleNumber = 1;
 
+    //Constructors
+    public Vehicle()
+    {
+
+    }
+
+    public Vehicle(int PolicyId, int year, string make, string model)
+    {
+        SetPolicyId(PolicyId);
+        Setyear(year);
+        Setmake(make);
+        Setmodel(model);
+
+    }
+
+    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber) : this(PolicyId, year, make,model)
+    {
+
+        SetVehicleStatus(VehicleStatus);
+        SetVehicleNumber(VehicleNumber);
+
+    }
+
+
     //Getters and Setters
     //Policy Id
     public int GetPolicyId()
@@ -88,31 +112,7 @@ class Vehicle
         this.VehicleNumber = VehicleNumber;
     }
 
-    //Constructors
-    public Vehicle()
-    {
-
-    }
-
-    public Vehicle(int PolicyId, int year, string make, string model)
-    {
-        SetPolicyId(PolicyId);
-        Setyear(year);
-        Setmake(make);
-        Setmodel(model);
-
-    }
-
-    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber) : this(PolicyId, year, make,model)
-    {
-
-        SetVehicleStatus(VehicleStatus);
-        SetVehicleNumber(VehicleNumber);
-
-    }
-
-
-
+  
     //Methods
     public static bool Toggle_VehicleStatus(bool VehicleStatus)
     {

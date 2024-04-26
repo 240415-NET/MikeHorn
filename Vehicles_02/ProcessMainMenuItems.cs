@@ -58,7 +58,15 @@ class ProcessMainMenuItems
         //Vehicle 5
         Vehicles.Add(new Vehicle(9876, 2016, "Hyundai", "Sonata"));
 
-        Vehicles.Add(new Truck(5678, 2020, "Honda", "Civic", true, 1, 6, "Flatbed"));
+        //Trucks
+        //Vehicle 6
+        Vehicles.Add(new Truck(5670, 2020, "International", "LT625", true, 1, 18, "Car Carrier"));
+
+        //Vehicle 7
+        Vehicles.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 1, 6, "Cement Mixer"));
+
+        //Vehicle 8
+        Vehicles.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 1, 4, "Cement Mixer"));
 
         Console.WriteLine("Bulk vehicles have been added \n");
     }
