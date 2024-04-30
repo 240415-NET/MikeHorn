@@ -1,6 +1,7 @@
 namespace Project1.Presentation;
 
 using Project1.Models;
+using Project1.Logic;
 using System.Collections.Generic;
 
 public class Menu

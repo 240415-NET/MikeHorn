@@ -1,4 +1,4 @@
-namespace Project1.Presentation;
+namespace Project1.Logic;
 
 using Project1.Models;
 
