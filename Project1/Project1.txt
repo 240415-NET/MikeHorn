@@ -1,0 +1,4 @@
+Project is intended to allow the user to create, store, recall, and modify vehicles.
+
+A menu will be presented to the user to select from the following:
+"exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "enter bulk vehicles" 
