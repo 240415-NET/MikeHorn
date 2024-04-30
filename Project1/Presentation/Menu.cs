@@ -12,15 +12,14 @@ public class Menu
     public void MainMenu()
     {
         string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "enter bulk vehicles" };
-        List<string> MainMenuItems = new List<string>(strMainMenuItems);
         
         do
         {
             // Console.Clear();
             Console.WriteLine("Please enter the number of your selection:\n");
-            PrintMenu(MainMenuItems);
+            PrintMenu(strMainMenuItems);
             strMenuSelection = Console.ReadLine();
-            if(ValidateMenuInput(strMenuSelection, MainMenuItems))
+            if(ValidateMenuInput(strMenuSelection, strMainMenuItems))
             {
                 ProcessMainMenu(Convert.ToInt16(strMenuSelection));
             }
@@ -28,11 +27,11 @@ public class Menu
 
     }
 
-    private static void PrintMenu(List<string> MenuItems)
+    private static void PrintMenu(string[] MenuItems)
     {
         foreach(string Item in MenuItems)
         {
-            Console.WriteLine($"{MenuItems.IndexOf(Item)} - {MenuItems[MenuItems.IndexOf(Item)]}");
+            Console.WriteLine($"{Array.IndexOf(MenuItems, Item)} - {MenuItems[Array.IndexOf(MenuItems, Item)]}");
         }
 
     }
@@ -78,7 +77,7 @@ public class Menu
         }
     }
 
-    static bool ValidateMenuInput(string MenuSelection, List<string> MenuItems)
+    static bool ValidateMenuInput(string MenuSelection, string[] MenuItems)
     {
         try
         {
