@@ -1,26 +1,27 @@
-namespace Project1.Presentation;
 
 using Project1.Models;
-using Project1.Logic;
-using System.Collections.Generic;
+using Project1.Controllers;
+using Project1;
+using System.Net;
 
-public class Menu
+namespace Project1.Presentation;
+public class MainMenuClass
 {
-    string? strMenuSelection;
-    bool Continue = true;
-    List<Vehicle> Vehicles = new List<Vehicle>();
+    private static List<Vehicle> Vehicles = new List<Vehicle>();
+    private static bool Continue = true;
 
-    public void MainMenu()
+    public static void MainMenu()
     {
         string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "enter bulk vehicles" };
         
+        string? strMenuSelection;
+        
         do
         {
-            // Console.Clear();
             Console.WriteLine("Please enter the number of your selection:\n");
             PrintMenu(strMainMenuItems);
             strMenuSelection = Console.ReadLine();
-            if(ValidateMenuInput(strMenuSelection, strMainMenuItems))
+            if(ProcessMainMenuItems.ValidateMenuInput(strMenuSelection, strMainMenuItems))
             {
                 ProcessMainMenu(Convert.ToInt16(strMenuSelection));
             }
@@ -37,7 +38,7 @@ public class Menu
 
     }
 
-    public void ProcessMainMenu(int intMenuSelection)
+    public static void ProcessMainMenu(int intMenuSelection)
     {
         ProcessMainMenuItems ProcessMenu = new();
         Console.WriteLine(" \n");
@@ -50,14 +51,41 @@ public class Menu
                     Continue = false;
                     break;
                 case 1: //list vehicles
-                    ProcessMainMenuItems.ListVehicles(Vehicles);
+                    foreach(Vehicle v in Vehicles)
+                    {
+                        Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+                    }
+
+                    Console.WriteLine(" \n");
                     break;
                 case 2: //enter vehicle
-                    ProcessMainMenuItems.EnterVehicle(Vehicles);
+
+                    Vehicles.Add(new Vehicle());
+
+                    Console.WriteLine("Please enter the Policy Id");
+                    Vehicles[Vehicles.Count - 1].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
+
+                    Console.WriteLine("Please enter the Vehicle's Year");
+                    Vehicles[Vehicles.Count - 1].Setyear(Convert.ToInt16(Console.ReadLine()));
+
+                    Console.WriteLine("Please enter the Vehicle's Make");
+                    Vehicles[Vehicles.Count - 1].Setmake(Console.ReadLine());
+
+                    Console.WriteLine("Please enter the Vehicle's Model");
+                    Vehicles[Vehicles.Count - 1].Setmodel(Console.ReadLine());
+
+                    Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
+
+                    Vehicles[Vehicles.Count - 1].SetVehicleNumber(Vehicles.Count);
+
+                    Console.WriteLine("Vehicle has now been added \n");
+
                     break;
                 case 3: //remove a vehicle
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
                     ProcessMainMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
+
+                    Console.WriteLine("Vehicle has now been removed \n");
 
                     break;
                 case 4: //toggle vehicle's active status
@@ -65,9 +93,14 @@ public class Menu
 
                     ProcessMainMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
+                    Console.WriteLine("Vehicle's Active Status has now been changed \n");
+
                     break;
                 case 5: //enter bulk vehicles
                     ProcessMainMenuItems.BulkVehicles(Vehicles);
+
+                    Console.WriteLine("Bulk vehicles have been added \n");
+
                     break;
             }
         }
@@ -78,25 +111,6 @@ public class Menu
         }
     }
 
-    static bool ValidateMenuInput(string MenuSelection, string[] MenuItems)
-    {
-        try
-        {
-            if (Convert.ToInt16(MenuSelection) >= 0 && Convert.ToInt16(MenuSelection) <= MenuItems.Count() - 1)
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine($"Menu selection must be between 0 and {MenuItems.Count()-1}");
-                return false;
-            }
-        }
-        catch (Exception excp)
-        {
-            Console.WriteLine($"Error detected {excp.Message}");
-            return false;
-        }
-    }
+    
 
 }

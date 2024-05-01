@@ -1,6 +1,6 @@
-﻿namespace Project1;
+﻿using Project1.Presentation;
 
-using Project1.Presentation;
+namespace Project1;
 
 class MainClass
 {
@@ -8,7 +8,6 @@ class MainClass
     {
         Console.Clear();
 
-        Menu StartMenu = new();
-        StartMenu.MainMenu();
+        MainMenuClass.MainMenu();
     }
 }
