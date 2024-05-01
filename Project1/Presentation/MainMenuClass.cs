@@ -12,16 +12,16 @@ public class MainMenuClass
 
     public void MainMenu()
     {
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "enter bulk vehicles" };
+        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "manage users", "enter bulk vehicles" };
         
         string? strMenuSelection;
         
         do
         {
             Console.WriteLine("Please enter the number of your selection:\n");
-            PrintMenu(strMainMenuItems);
+            MenuClass.PrintMenu(strMainMenuItems);
             strMenuSelection = Console.ReadLine();
-            if(ProcessMainMenuItems.ValidateMenuInput(strMenuSelection, strMainMenuItems))
+            if(MenuClass.ValidateMenuInput(strMenuSelection, strMainMenuItems))
             {
                 ProcessMainMenu(Convert.ToInt16(strMenuSelection));
             }
@@ -29,14 +29,6 @@ public class MainMenuClass
 
     }
 
-    private static void PrintMenu(string[] MenuItems)
-    {
-        foreach(string Item in MenuItems)
-        {
-            Console.WriteLine($"{Array.IndexOf(MenuItems, Item)} - {MenuItems[Array.IndexOf(MenuItems, Item)]}");
-        }
-
-    }
 
     public void ProcessMainMenu(int intMenuSelection)
     {
@@ -61,24 +53,6 @@ public class MainMenuClass
                 case 2: //enter vehicle
                     AddVehicleClass.AddVehicle(Vehicles);
 
-                    // Vehicles.Add(new Vehicle());
-
-                    // Console.WriteLine("Please enter the Policy Id");
-                    // Vehicles[Vehicles.Count - 1].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
-
-                    // Console.WriteLine("Please enter the Vehicle's Year");
-                    // Vehicles[Vehicles.Count - 1].Setyear(Convert.ToInt16(Console.ReadLine()));
-
-                    // Console.WriteLine("Please enter the Vehicle's Make");
-                    // Vehicles[Vehicles.Count - 1].Setmake(Console.ReadLine());
-
-                    // Console.WriteLine("Please enter the Vehicle's Model");
-                    // Vehicles[Vehicles.Count - 1].Setmodel(Console.ReadLine());
-
-                    // Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
-
-                    // Vehicles[Vehicles.Count - 1].SetVehicleNumber(Vehicles.Count);
-
                     Console.WriteLine("Vehicle has now been added \n");
 
                     break;
@@ -97,7 +71,10 @@ public class MainMenuClass
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                case 5: //enter bulk vehicles
+                case 5:
+                    UserMenuClass.UserMenu();
+                    break;
+                case 6: //enter bulk vehicles
                     ProcessMainMenuItems.BulkVehicles(Vehicles);
 
                     Console.WriteLine("Bulk vehicles have been added \n");
