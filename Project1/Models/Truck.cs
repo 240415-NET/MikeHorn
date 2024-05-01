@@ -1,6 +1,6 @@
 namespace Project1.Models;
 
-class Truck : Vehicle
+public class Truck : Vehicle
 {
     private int NumberWheels = 4;
     private string TruckType = "Flatbed Truck";

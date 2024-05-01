@@ -1,7 +1,7 @@
 namespace Project1.Models;
 
 
-class Vehicle
+public class Vehicle
 {
     //Fields
     protected int PolicyId = 0;

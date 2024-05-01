@@ -8,6 +8,8 @@ class MainClass
     {
         Console.Clear();
 
-        MainMenuClass.MainMenu();
+        MainMenuClass main = new MainMenuClass();
+        main.MainMenu();
+        // MainMenuClass.MainMenu();
     }
 }
