@@ -1,6 +1,7 @@
 
 using Project1.Models;
 using Project1.Controllers;
+using Project1.DataAccess;
 using Project1;
 using System.Net;
 
@@ -52,6 +53,8 @@ public class UserMenuClass
                 case 2: //enter user
 
                     AddUserClass.AddUser(Users);
+
+                    UserStorage.StoreUser(Users[0]);
 
                     Console.WriteLine("User has now been added \n");
 
