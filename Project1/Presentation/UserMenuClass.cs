@@ -50,9 +50,10 @@ public class UserMenuClass
                     Console.WriteLine(" \n");
                     break;
                 case 2: //enter user
-                    // AddVehicleClass.AddVehicle(Vehicles);
 
-                    // Console.WriteLine("Vehicle has now been added \n");
+                    AddUserClass.AddUser(Users);
+
+                    Console.WriteLine("User has now been added \n");
 
                     break;
                 case 3: //remove a user
