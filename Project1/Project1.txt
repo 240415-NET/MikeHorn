@@ -1,4 +1,34 @@
 Project is intended to allow the user to create, store, recall, and modify vehicles.
 
 A menu will be presented to the user to select from the following:
-"exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "enter bulk vehicles" 
+exit
+list vehicles
+enter vehicle
+remove a vehicle
+toggle vehicle's active status
+manage users
+enter bulk vehicles
+
+If manage users is chosen from the above menu, the user will be presented the following menu items to choose from:
+exit
+list users
+enter user
+remove a user
+enter bulk users
+
+There will be 4 tiers or layers to this Project:
+Presentation
+Controllers
+DataAccess
+Models
+
+There will be 3 models:
+user
+vehicle
+Truck, which will be a child of vehicle, showing inheratence
+
+The Vehicle model has 3 constructors showing overload polymorhpism
+
+All three models show overriding via their ToString method
+
+The User model will include a field called UserRole which will dictate what menu items are available to the logged in user
