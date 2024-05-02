@@ -71,7 +71,7 @@ public class MainMenuClass
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                case 5:
+                case 5: //manage users
                     UserMenuClass.UserMenu();
                     break;
                 case 6: //enter bulk vehicles

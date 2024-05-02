@@ -7,10 +7,10 @@ public class User
     public Guid UserId {get; private set;}
     public string UserName {get; set;}
 
-    public string UserRole {get; private set;} //can only be Supervisor or Agent, if not Supervisor then automatically set to Agent
+    public string UserRole {get; private set;} //can only be Supervisor, Admin or Agent, if not Supervisor or Admin then automatically set to Agent
 
     //Constructors
-    // public User() {}
+    public User() {}
 
     public User(string UserName, string UserRole)
     {
@@ -20,6 +20,10 @@ public class User
         {
             this.UserRole = "Supervisor";
         }
+        else if(UserRole == "Admin")
+        {
+            this.UserRole = "Admin";
+        }
         else
         {
             this.UserRole = "Agent";
@@ -27,4 +31,9 @@ public class User
         
     }
 
+    public override string ToString()
+    {
+
+        return $"UserName: {UserName}\tUserRole: {UserRole}\tUserId: {UserId}";
+    }
 }

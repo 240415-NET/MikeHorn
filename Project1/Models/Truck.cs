@@ -69,6 +69,6 @@ public class Truck : Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Policy: {PolicyId} Year: {year} Make: {make} Model: {model} Status: {VehicleStatusValue} Vehicle Number: {VehicleNumber} Number of Wheels: {NumberWheels} Truck Type: {TruckType}";
+        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleNumber}\tNumber of Wheels: {NumberWheels}\tTruck Type: {TruckType}";
     }
 }
