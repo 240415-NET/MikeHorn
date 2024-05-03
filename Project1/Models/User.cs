@@ -4,10 +4,10 @@ public class User
 {
 
     //Fields
-    public Guid UserId {get; private set;}
+    public Guid UserId {get; set;}
     public string UserName {get; set;}
 
-    public string UserRole {get; private set;} //can only be Supervisor, Admin or Agent, if not Supervisor or Admin then automatically set to Agent
+    public string UserRole {get; set;} //can only be Supervisor, Admin or Agent, if not Supervisor or Admin then automatically set to Agent
 
     //Constructors
     public User() {}

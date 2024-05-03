@@ -54,7 +54,7 @@ public class UserMenuClass
 
                     AddUserClass.AddUser(Users);
 
-                    UserStorage.StoreUser(Users[0]);
+                    UserStorage.StoreUser(Users[Users.Count -1]);
 
                     Console.WriteLine("User has now been added \n");
 
@@ -69,6 +69,8 @@ public class UserMenuClass
 
                 case 4: //enter bulk users
                     ProcessUserMenuItems.BulkUsers(Users);
+
+                    UserStorage.StoreUsers(Users);
 
                     Console.WriteLine("Bulk users have been added \n");
 
