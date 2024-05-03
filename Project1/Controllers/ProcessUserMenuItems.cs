@@ -1,6 +1,8 @@
+using Project1.Models;
+using Project1.DataAccess;
+
 namespace Project1.Controllers;
 
-using Project1.Models;
 
 class ProcessUserMenuItems
 {
@@ -10,6 +12,7 @@ class ProcessUserMenuItems
 
     }
 
+    //Obsolete
     public static void BulkUsers(List<User> Users)
     {
         //User 0
@@ -25,5 +28,15 @@ class ProcessUserMenuItems
         Users.Add(new User("OFlores", "Omar"));
 
 
+    }
+
+    public static bool UserExists(string UserName)
+    {
+        if(UserStorage.FindUser(UserName) != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

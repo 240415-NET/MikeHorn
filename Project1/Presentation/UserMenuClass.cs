@@ -47,20 +47,25 @@ public class UserMenuClass
                     //Retrieve Users from Data Store and put into Users List
                     Users = UserStorage.RetrieveUsers();
 
-                    // foreach(User u in Users)
-                    foreach(User u in Users)
+                    if(Users != null)
                     {
-                        Console.WriteLine("Index = " + Users.IndexOf(u) + " " + u);
+                        foreach(User u in Users)
+                        {
+                            Console.WriteLine("Index = " + Users.IndexOf(u) + " " + u);
+                        }
+                    }else
+                    {
+                        Console.WriteLine("No users found");
                     }
 
                     Console.WriteLine(" \n");
                     break;
                 case 2: //enter user
 
-                    AddUserClass.AddUser(Users);
+                    AddUser(Users);
 
-                    // UserStorage.StoreUser(Users[Users.Count -1]);
-                    UserStorage.StoreUsers(Users);
+                    UserStorage.StoreUser(Users[Users.Count -1]);
+                    // UserStorage.StoreUsers(Users);
 
                     Console.WriteLine("User has now been added \n");
 
@@ -72,7 +77,7 @@ public class UserMenuClass
                     Console.WriteLine("User has now been removed \n");
 
                     break;
-
+                //Obsolete
                 case 4: //enter bulk users
                     ProcessUserMenuItems.BulkUsers(Users);
 
@@ -90,4 +95,38 @@ public class UserMenuClass
         }
     }
 
+    public static void AddUser(List<User> Users)
+    {
+        string UserName = "";
+        string UserRole = "";
+        bool ValidInput = true;
+
+        do
+        {
+            Console.WriteLine("Please enter the user name");
+            UserName = Console.ReadLine()?? "";
+
+            UserName = UserName.Trim();
+
+            if(String.IsNullOrEmpty(UserName))
+            {
+                Console.WriteLine("user name cannot be blank, please try again");
+                ValidInput = false;
+            }else if(ProcessUserMenuItems.UserExists(UserName))
+            {
+                Console.WriteLine("this user name already exists, please try another user name");
+                ValidInput = false;
+            }else
+            {
+                ValidInput = true;
+            }
+
+        }while (!ValidInput);
+
+        Console.WriteLine("Please enter the user's role Admin/Supervisor/Agent");
+        UserRole = Console.ReadLine()?? "";
+
+        Users.Add(new User(UserName, UserRole));
+
+    }
 }

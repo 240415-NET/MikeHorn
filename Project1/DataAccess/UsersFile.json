@@ -1,1 +1,27 @@
-[{"UserId":"1ac94727-80a7-4714-bfe3-64f374d99846","UserName":"MiHorn","UserRole":"Admin"},{"UserId":"75bd4e78-79db-4169-96a6-1e2f32a98a68","UserName":"CKnox","UserRole":"Supervisor"},{"UserId":"60786453-3c76-49b8-aa41-d1dddf711c9b","UserName":"RWheatley","UserRole":"Agent"},{"UserId":"556f0eff-aa14-4a1a-9a8b-063d991d8e91","UserName":"OFlores","UserRole":"Agent"},{"UserId":"25afe682-7211-4712-96aa-e6c59d199128","UserName":"JDoria","UserRole":"Supervisor"}]
+[
+    {
+        "UserId": "1ac94727-80a7-4714-bfe3-64f374d99846",
+        "UserName": "MiHorn",
+        "UserRole": "Admin"
+    },
+    {
+        "UserId": "75bd4e78-79db-4169-96a6-1e2f32a98a68",
+        "UserName": "CKnox",
+        "UserRole": "Supervisor"
+    },
+    {
+        "UserId": "60786453-3c76-49b8-aa41-d1dddf711c9b",
+        "UserName": "RWheatley",
+        "UserRole": "Agent"
+    },
+    {
+        "UserId": "556f0eff-aa14-4a1a-9a8b-063d991d8e91",
+        "UserName": "OFlores",
+        "UserRole": "Agent"
+    },
+    {
+        "UserId": "27263e00-ab65-4633-acae-ee9f80dbce7a",
+        "UserName": "JDoria",
+        "UserRole": "Supervisor"
+    }
+]
