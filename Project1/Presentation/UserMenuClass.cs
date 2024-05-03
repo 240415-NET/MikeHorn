@@ -43,6 +43,11 @@ public class UserMenuClass
                     Continue = false;
                     break;
                 case 1: //list users
+
+                    //Retrieve Users from Data Store and put into Users List
+                    Users = UserStorage.RetrieveUsers();
+
+                    // foreach(User u in Users)
                     foreach(User u in Users)
                     {
                         Console.WriteLine("Index = " + Users.IndexOf(u) + " " + u);
@@ -54,7 +59,8 @@ public class UserMenuClass
 
                     AddUserClass.AddUser(Users);
 
-                    UserStorage.StoreUser(Users[Users.Count -1]);
+                    // UserStorage.StoreUser(Users[Users.Count -1]);
+                    UserStorage.StoreUsers(Users);
 
                     Console.WriteLine("User has now been added \n");
 
