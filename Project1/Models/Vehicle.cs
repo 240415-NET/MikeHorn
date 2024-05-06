@@ -4,12 +4,20 @@ namespace Project1.Models;
 public class Vehicle
 {
     //Fields
-    protected int PolicyId = 0;
-    protected int year = 1900;
-    protected string make = "";
-    protected string model = "";
-    protected bool VehicleStatus = true; //true = active, false = inactive
-    protected int VehicleNumber = 1;
+    /*
+    public int PolicyId = 0;
+    public int year = 1900;
+    public string make = "";
+    public string model = "";
+    public bool VehicleStatus = true; //true = active, false = inactive
+    public int VehicleNumber = 1;
+    */
+    public int PolicyId {get; set;}
+    public int year {get; set;}
+    public string make {get; set;}
+    public string model {get; set;}
+    public bool VehicleStatus {get; set;}
+    public int VehicleNumber {get; set;}
 
     //Constructors
     public Vehicle()
@@ -122,11 +130,14 @@ public class Vehicle
 
     public override string ToString()
     {
+    
         string VehicleStatusValue = "Active";
+
         if(!VehicleStatus)
         {
             VehicleStatusValue = "Inactive";
         }
         return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleNumber}";
     }
+    
 }

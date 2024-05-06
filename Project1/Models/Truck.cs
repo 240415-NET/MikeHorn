@@ -2,8 +2,8 @@ namespace Project1.Models;
 
 public class Truck : Vehicle
 {
-    private int NumberWheels = 4;
-    private string TruckType = "Flatbed Truck";
+    public int NumberWheels = 4;
+    public string TruckType = "Flatbed Truck";
 
     //Constructors
     public Truck()

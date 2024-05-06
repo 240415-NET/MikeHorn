@@ -8,10 +8,10 @@ namespace Project1.Controllers;
 
 class ProcessUserMenuItems
 {
-    public static IUserStorage UserStore = new UserStorageJSON();
+    public static IUserDataManagement UserStore = new UserStorageJSON();
     public static List<User> GetUsers(List<User> Users)
     {
-        Users = UserStore.RetrieveUsers(Users);
+        Users = UserStore.RetrieveData(Users);
         return Users;
     }
 
@@ -19,12 +19,14 @@ class ProcessUserMenuItems
     {
         Users.Add(new User(UserName, UserRole));
 
-        UserStore.StoreUsers(Users, true);
+        UserStore.StoreData(Users, true);
     }
 
     public static void RemoveUser(List<User> Users, int intIndex)
     {
         Users.RemoveAt(intIndex);
+
+        UserStore.StoreData(Users, true);
 
     }
 
@@ -48,7 +50,7 @@ class ProcessUserMenuItems
 
     public static bool UserExists(string UserName)
     {
-        if(UserStore.FindUser(UserName) != null)
+        if(UserStore.FindData(UserName) != null)
         {
             return true;
         }

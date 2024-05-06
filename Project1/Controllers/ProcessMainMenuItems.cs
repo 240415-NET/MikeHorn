@@ -1,9 +1,11 @@
-namespace Project1.Controllers;
-
 using Project1.Models;
+using Project1.DataAccess;
+
+namespace Project1.Controllers;
 
 class ProcessMainMenuItems
 {
+    public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
 
     public static void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)
     {
@@ -38,18 +40,20 @@ class ProcessMainMenuItems
         //Vehicle 4
         Vehicles.Add(new Vehicle(5678, 2014, "Acura", "ILX"));
 
-        //Vehicle 5
+        // //Vehicle 5
         Vehicles.Add(new Vehicle(9876, 2016, "Hyundai", "Sonata"));
 
         //Trucks
         //Vehicle 6
         Vehicles.Add(new Truck(5670, 2020, "International", "LT625", true, 1, 18, "Car Carrier"));
 
-        //Vehicle 7
+        // //Vehicle 7
         Vehicles.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 1, 6, "Cement Mixer"));
 
-        //Vehicle 8
+        // //Vehicle 8
         Vehicles.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 1, 4, "Cement Mixer"));
+
+        VehicleStore.StoreData(Vehicles, true);
 
     }
 
