@@ -6,6 +6,19 @@ namespace Project1.Controllers;
 
 class ProcessUserMenuItems
 {
+    public static List<User> GetUsers(List<User> Users)
+    {
+        Users = UserStorage.RetrieveUsers(Users);
+        return Users;
+    }
+
+    public static void SetUsers(List<User> Users, string UserName, string UserRole)
+    {
+        Users.Add(new User(UserName, UserRole));
+
+        UserStorage.StoreUsers(Users, true);
+    }
+
     public static void RemoveUser(List<User> Users, int intIndex)
     {
         Users.RemoveAt(intIndex);

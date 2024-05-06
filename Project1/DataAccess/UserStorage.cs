@@ -8,28 +8,31 @@ public class UserStorage
 {
     public static readonly string FilePath = ".//DataAccess//UsersFile.json";
 
-    public static List<User> RetrieveUsers()
+    public static List<User> RetrieveUsers(List<User> Users)
     {
-        List<User>? ListOfUsers = new List<User>();
+        // List<User>? ListOfUsers = new List<User>();
 
         if(File.Exists(FilePath)) //file exists and will read the file and then add the new user
         {
             string UsersJSONFilePath = File.ReadAllText(FilePath);
 
-            ListOfUsers = JsonSerializer.Deserialize<List<User>>(UsersJSONFilePath);
+            Users = JsonSerializer.Deserialize<List<User>>(UsersJSONFilePath);
 
-            return ListOfUsers;
+            return Users;
 
         }else //file doesn't exist and will be created and user will be added
         {
 
-            return ListOfUsers;
+            return Users;
+            // Users = null;
         }
 
     }
+
+    //Obsolete
     public static void StoreUser(User _User)
     {
-        string FilePath = ".//DataAccess//UsersFile.json";
+        // string FilePath = ".//DataAccess//UsersFile.json";
         List<User> ListOfUsers = new List<User>();
 
         if(File.Exists(FilePath)) //file exists and will read the file and then add the new user
@@ -55,28 +58,33 @@ public class UserStorage
         }
     }
 
-    //Obsolete
-    public static void StoreUsers(List<User> PassedListOfUsers)
+    
+    public static void StoreUsers(List<User> PassedListOfUsers, bool refreshFile)
     {
-        // string FilePath = ".//DataAccess//UsersFile.json";
         List<User> ListOfUsers = new List<User>();
 
         if(File.Exists(FilePath)) //file exists and will read the file and then add the new user
         {
-            string ExistingUsersJSON = File.ReadAllText(FilePath);
+            if(refreshFile)//if need to just add full list due to a delete or change
+            {
+                string refreshListOfUsers = JsonSerializer.Serialize(PassedListOfUsers);
+                File.WriteAllText(FilePath, refreshListOfUsers);
 
-            ListOfUsers = JsonSerializer.Deserialize<List<User>>(ExistingUsersJSON);
+            }else{ //if need to add to what was existing
+                string ExistingUsersJSONFilePath = File.ReadAllText(FilePath);
 
-            // ListOfUsers.Add(_User);
-            ListOfUsers.AddRange(PassedListOfUsers);
+                ListOfUsers = JsonSerializer.Deserialize<List<User>>(ExistingUsersJSONFilePath);
 
-            string ExistingListOfUsers = JsonSerializer.Serialize(ListOfUsers);
+                // ListOfUsers.Add(_User);
+                ListOfUsers.AddRange(PassedListOfUsers);
 
-            File.WriteAllText(FilePath, ExistingListOfUsers);
+                string ExistingListOfUsers = JsonSerializer.Serialize(ListOfUsers);
 
-        }else if(!File.Exists(FilePath)) //file doesn't exist and will be created and user will be added
+                File.WriteAllText(FilePath, ExistingListOfUsers);
+            }
+
+        }else //if(!File.Exists(FilePath)) //file doesn't exist and will be created and user will be added
         {
-            // ListOfUsers.Add(_User);
             ListOfUsers.AddRange(PassedListOfUsers);
 
             string NewListOfUsers = JsonSerializer.Serialize(ListOfUsers);

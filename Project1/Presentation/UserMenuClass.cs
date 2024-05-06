@@ -2,8 +2,7 @@
 using Project1.Models;
 using Project1.Controllers;
 using Project1.DataAccess;
-using Project1;
-using System.Net;
+
 
 namespace Project1.Presentation;
 public class UserMenuClass
@@ -45,7 +44,7 @@ public class UserMenuClass
                 case 1: //list users
 
                     //Retrieve Users from Data Store and put into Users List
-                    Users = UserStorage.RetrieveUsers();
+                    Users = ProcessUserMenuItems.GetUsers(Users);
 
                     if(Users != null)
                     {
@@ -64,15 +63,14 @@ public class UserMenuClass
 
                     AddUser(Users);
 
-                    UserStorage.StoreUser(Users[Users.Count -1]);
-                    // UserStorage.StoreUsers(Users);
-
                     Console.WriteLine("User has now been added \n");
 
                     break;
                 case 3: //remove a user
                     Console.WriteLine("Please enter the User's Index Number to remove");
                     ProcessUserMenuItems.RemoveUser(Users, Convert.ToInt16(Console.ReadLine()));
+
+
 
                     Console.WriteLine("User has now been removed \n");
 
@@ -81,7 +79,7 @@ public class UserMenuClass
                 case 4: //enter bulk users
                     ProcessUserMenuItems.BulkUsers(Users);
 
-                    UserStorage.StoreUsers(Users);
+                    UserStorage.StoreUsers(Users, false);
 
                     Console.WriteLine("Bulk users have been added \n");
 
@@ -126,7 +124,7 @@ public class UserMenuClass
         Console.WriteLine("Please enter the user's role Admin/Supervisor/Agent");
         UserRole = Console.ReadLine()?? "";
 
-        Users.Add(new User(UserName, UserRole));
+        ProcessUserMenuItems.SetUsers(Users, UserName, UserRole);
 
     }
 }
