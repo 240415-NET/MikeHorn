@@ -4,11 +4,11 @@ using System.Text.Json;
 
 namespace Project1.DataAccess;
 
-public class UserStorage
+public class UserStorageJSON : IUserStorage
 {
     public static readonly string FilePath = ".//DataAccess//UsersFile.json";
 
-    public static List<User> RetrieveUsers(List<User> Users)
+    public List<User> RetrieveUsers(List<User> Users)
     {
         // List<User>? ListOfUsers = new List<User>();
 
@@ -30,7 +30,7 @@ public class UserStorage
     }
 
     //Obsolete
-    public static void StoreUser(User _User)
+    public void StoreUser(User _User)
     {
         // string FilePath = ".//DataAccess//UsersFile.json";
         List<User> ListOfUsers = new List<User>();
@@ -59,13 +59,13 @@ public class UserStorage
     }
 
     
-    public static void StoreUsers(List<User> PassedListOfUsers, bool refreshFile)
+    public void StoreUsers(List<User> PassedListOfUsers, bool refreshAll)
     {
         List<User> ListOfUsers = new List<User>();
 
         if(File.Exists(FilePath)) //file exists and will read the file and then add the new user
         {
-            if(refreshFile)//if need to just add full list due to a delete or change
+            if(refreshAll)//if need to just add full list due to a delete or change
             {
                 string refreshListOfUsers = JsonSerializer.Serialize(PassedListOfUsers);
                 File.WriteAllText(FilePath, refreshListOfUsers);
@@ -94,7 +94,7 @@ public class UserStorage
         }
     }
 
-    public static User FindUser(string usernameToFind)
+    public User FindUser(string usernameToFind)
     {
         //User object to store a user if they are found or NULL if they are not
         User foundUser = new User();

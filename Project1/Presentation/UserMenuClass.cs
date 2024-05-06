@@ -77,11 +77,11 @@ public class UserMenuClass
                     break;
                 //Obsolete
                 case 4: //enter bulk users
-                    ProcessUserMenuItems.BulkUsers(Users);
+                    // ProcessUserMenuItems.BulkUsers(Users);
 
-                    UserStorage.StoreUsers(Users, false);
+                    // UserStorageJSON.StoreUsers(Users, false);
 
-                    Console.WriteLine("Bulk users have been added \n");
+                    // Console.WriteLine("Bulk users have been added \n");
 
                     break;
             }

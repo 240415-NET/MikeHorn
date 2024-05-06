@@ -4,11 +4,14 @@ using Project1.DataAccess;
 namespace Project1.Controllers;
 
 
+
+
 class ProcessUserMenuItems
 {
+    public static IUserStorage UserStore = new UserStorageJSON();
     public static List<User> GetUsers(List<User> Users)
     {
-        Users = UserStorage.RetrieveUsers(Users);
+        Users = UserStore.RetrieveUsers(Users);
         return Users;
     }
 
@@ -16,7 +19,7 @@ class ProcessUserMenuItems
     {
         Users.Add(new User(UserName, UserRole));
 
-        UserStorage.StoreUsers(Users, true);
+        UserStore.StoreUsers(Users, true);
     }
 
     public static void RemoveUser(List<User> Users, int intIndex)
@@ -45,7 +48,7 @@ class ProcessUserMenuItems
 
     public static bool UserExists(string UserName)
     {
-        if(UserStorage.FindUser(UserName) != null)
+        if(UserStore.FindUser(UserName) != null)
         {
             return true;
         }
