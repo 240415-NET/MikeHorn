@@ -7,20 +7,35 @@ class ProcessMainMenuItems
 {
     public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
 
+    public static List<Vehicle> GetVehicles(List<Vehicle> Vehicles)
+    {
+        Vehicles = VehicleStore.RetrieveData(Vehicles);
+        return Vehicles;
+    }
+
+    public static void SetVehicles(List<Vehicle> Vehicles)
+    {
+
+        VehicleStore.StoreData(Vehicles, true);
+    }
+
     public static void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)
     {
         Vehicles.RemoveAt(intIndex);
 
+        VehicleStore.StoreData(Vehicles, true);
+
     }
     public static void ToggleVehicleStatus(List<Vehicle> Vehicles, int intIndex)
     {
-        bool blnVehStatus;
-        blnVehStatus = Vehicles[intIndex].GetVehicleStatus();
+        // bool blnVehStatus;
+        // blnVehStatus = Vehicles[intIndex].GetVehicleStatus();
 
-        Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+        // Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
 
     }
 
+    //Obsolete
     public static void BulkVehicles(List<Vehicle> Vehicles)
     {
         //Full Constructor

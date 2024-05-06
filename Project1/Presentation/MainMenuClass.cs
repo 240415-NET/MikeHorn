@@ -43,13 +43,24 @@ public class MainMenuClass
                     Continue = false;
                     break;
                 case 1: //list vehicles
-                    foreach(Vehicle v in Vehicles)
+
+                    Vehicles = ProcessMainMenuItems.GetVehicles(Vehicles);
+
+                    if(Vehicles != null)
                     {
-                        Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+
+                        foreach(Vehicle v in Vehicles)
+                        {
+                            Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+                        }
+                    }else
+                    {
+                        Console.WriteLine("No vehicles found");
                     }
 
                     Console.WriteLine(" \n");
                     break;
+
                 case 2: //enter vehicle
                     AddVehicle(Vehicles);
 
@@ -74,12 +85,12 @@ public class MainMenuClass
                 case 5: //manage users
                     UserMenuClass.UserMenu();
                     break;
-                case 6: //enter bulk vehicles
-                    ProcessMainMenuItems.BulkVehicles(Vehicles);
+                // case 6: //enter bulk vehicles
+                //     ProcessMainMenuItems.BulkVehicles(Vehicles);
 
-                    Console.WriteLine("Bulk vehicles have been added \n");
+                //     Console.WriteLine("Bulk vehicles have been added \n");
 
-                    break;
+                //     break;
             }
         }
         catch (Exception excp)
@@ -108,6 +119,8 @@ public class MainMenuClass
         Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
 
         Vehicles[Vehicles.Count - 1].SetVehicleNumber(Vehicles.Count);
+
+        ProcessMainMenuItems.SetVehicles(Vehicles);
     }
 
 }
