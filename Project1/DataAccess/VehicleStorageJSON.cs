@@ -1,5 +1,4 @@
 using Project1.Models;
-using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Project1.DataAccess;
@@ -28,35 +27,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
         }
 
     }
-
-    //Obsolete
-    // public void StoreData(Vehicle _Vehicle)
-    // {
-    //     // string FilePath = ".//DataAccess//VehiclesFile.json";
-    //     List<Vehicle> ListOfVehicles = new List<Vehicle>();
-
-    //     if(File.Exists(FilePath)) //file exists and will read the file and then add the new Vehicle
-    //     {
-    //         string ExistingVehiclesJSON = File.ReadAllText(FilePath);
-
-    //         ListOfVehicles = JsonSerializer.Deserialize<List<Vehicle>>(ExistingVehiclesJSON);
-
-    //         ListOfVehicles.Add(_Vehicle);
-
-    //         string ExistingListOfVehicles = JsonSerializer.Serialize(ListOfVehicles);
-
-    //         File.WriteAllText(FilePath, ExistingListOfVehicles);
-
-    //     }else if(!File.Exists(FilePath)) //file doesn't exist and will be created and Vehicle will be added
-    //     {
-    //         ListOfVehicles.Add(_Vehicle);
-
-    //         string NewListOfVehicles = JsonSerializer.Serialize(ListOfVehicles);
-
-    //         File.WriteAllText(FilePath, NewListOfVehicles);
-
-    //     }
-    // }
 
 
     public void StoreData(List<Vehicle> PassedListOfVehicles, bool refreshAll)

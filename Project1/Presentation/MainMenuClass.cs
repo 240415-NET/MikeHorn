@@ -1,8 +1,6 @@
 
 using Project1.Models;
 using Project1.Controllers;
-using Project1;
-using System.Net;
 
 namespace Project1.Presentation;
 public class MainMenuClass
@@ -12,7 +10,7 @@ public class MainMenuClass
 
     public void MainMenu()
     {
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "manage users", "enter bulk vehicles" };
+        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "manage users" };
         
         string? strMenuSelection;
         
@@ -85,12 +83,7 @@ public class MainMenuClass
                 case 5: //manage users
                     UserMenuClass.UserMenu();
                     break;
-                // case 6: //enter bulk vehicles
-                //     ProcessMainMenuItems.BulkVehicles(Vehicles);
 
-                //     Console.WriteLine("Bulk vehicles have been added \n");
-
-                //     break;
             }
         }
         catch (Exception excp)

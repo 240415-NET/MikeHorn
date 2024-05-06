@@ -1,8 +1,6 @@
 
 using Project1.Models;
 using Project1.Controllers;
-using Project1.DataAccess;
-
 
 namespace Project1.Presentation;
 public class UserMenuClass
@@ -12,7 +10,7 @@ public class UserMenuClass
 
     public static void UserMenu()
     {
-        string[] strMainMenuItems = { "exit", "list users", "enter user", "remove a user", "enter bulk users" };
+        string[] strMainMenuItems = { "exit", "list users", "enter user", "remove a user" };
         
         string? strMenuSelection;
         
@@ -75,15 +73,7 @@ public class UserMenuClass
                     Console.WriteLine("User has now been removed \n");
 
                     break;
-                //Obsolete
-                case 4: //enter bulk users
-                    // ProcessUserMenuItems.BulkUsers(Users);
 
-                    // UserStorageJSON.StoreUsers(Users, false);
-
-                    // Console.WriteLine("Bulk users have been added \n");
-
-                    break;
             }
         }
         catch (Exception excp)

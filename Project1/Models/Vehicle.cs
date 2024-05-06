@@ -4,14 +4,6 @@ namespace Project1.Models;
 public class Vehicle
 {
     //Fields
-    /*
-    public int PolicyId = 0;
-    public int year = 1900;
-    public string make = "";
-    public string model = "";
-    public bool VehicleStatus = true; //true = active, false = inactive
-    public int VehicleNumber = 1;
-    */
     public int PolicyId {get; set;}
     public int year {get; set;}
     public string make {get; set;}
