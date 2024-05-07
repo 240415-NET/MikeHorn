@@ -10,7 +10,7 @@ public class UserMenuClass
 
     public static void UserMenu()
     {
-        string[] strMainMenuItems = { "exit", "list users", "enter user", "remove a user" };
+        string[] strMainMenuItems = { "exit", "list users", "add user", "remove a user" };
         
         string? strMenuSelection;
         
@@ -57,7 +57,7 @@ public class UserMenuClass
 
                     Console.WriteLine(" \n");
                     break;
-                case 2: //enter user
+                case 2: //add user
 
                     AddUser(Users);
 

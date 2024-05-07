@@ -9,7 +9,19 @@ class MainClass
         // Console.Clear();
 
         MainMenuClass main = new MainMenuClass();
-        main.MainMenu();
+        bool Login;
+
+        Login = LoginPresentationClass.StartLogin();
+
+        if(Login = false)
+        {
+            return;
+        }else
+        {
+
+            main.MainMenu();
+        }
+        
         // MainMenuClass.MainMenu();
     }
 }

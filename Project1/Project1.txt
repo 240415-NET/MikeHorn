@@ -7,14 +7,12 @@ enter vehicle
 remove a vehicle
 toggle vehicle's active status
 manage users
-enter bulk vehicles
 
 If manage users is chosen from the above menu, the user will be presented the following menu items to choose from:
 exit
 list users
-enter user
+add user
 remove a user
-enter bulk users
 
 There will be 4 tiers or layers to this Project:
 Presentation
