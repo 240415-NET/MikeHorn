@@ -4,25 +4,26 @@ using Project1.Controllers;
 namespace Project1.Presentation;
 public class LoginPresentationClass
 {
-    public static bool StartLogin()
+    public static string StartLogin()
     {
         string strReturn;
+        string strSent;
 
         Console.WriteLine("Please enter your username to Login or 0 to exit");
+        strSent = Console.ReadLine();
         
-        strReturn = LoginController.UserExists(Console.ReadLine());
+        strReturn = LoginController.UserExists(strSent);
 
         switch (strReturn)
         {
             case "Exit":
-                return false;
+                return "Exit";
             case "Absent":
                 Console.WriteLine("Username is not found");
-                return false;
-            case "Found":
-                return true;
+                return "Exit";
             default:
-                return false;
+                return strReturn;
+            
         }
 
     }

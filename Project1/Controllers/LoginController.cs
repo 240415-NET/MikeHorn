@@ -6,6 +6,7 @@ namespace Project1.Controllers;
 
 public class LoginController
 {
+    public static IUserDataManagement UserStore = new UserStorageJSON();
     public static string UserExists(string _UserName)
     {
         if(_UserName == "0") //they want to exit
@@ -16,7 +17,13 @@ public class LoginController
             return "Absent";
         }else //username is found
         {
-            return "Found";
+            return _UserName;
         }
+    }
+
+    public static string GetRole(string _UserName)
+    {
+        return UserStore.FindData(_UserName).UserRole;
+
     }
 }

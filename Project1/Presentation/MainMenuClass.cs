@@ -5,12 +5,19 @@ using Project1.Controllers;
 namespace Project1.Presentation;
 public class MainMenuClass
 {
-    public List<Vehicle> Vehicles = new List<Vehicle>();
+    // public List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
+    string[] strMainMenuItems;
 
-    public void MainMenu()
+    public void MainMenu(string _UserRole)
     {
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "manage users" };
+        if(_UserRole == "Agent") //an agent cannot manage users
+        {
+            strMainMenuItems = [ "exit", "manage vehicles" ];
+        }else //only and Admin or Supervisor can manage users
+        {
+            strMainMenuItems = [ "exit", "manage vehicles", "manage users" ];
+        }
         
         string? strMenuSelection;
         
@@ -40,47 +47,13 @@ public class MainMenuClass
                 case 0: //exit
                     Continue = false;
                     break;
-                case 1: //list vehicles
+                case 1: //manage vehicles
 
-                    Vehicles = ProcessMainMenuItems.GetVehicles(Vehicles);
-
-                    if(Vehicles != null)
-                    {
-
-                        foreach(Vehicle v in Vehicles)
-                        {
-                            Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
-                        }
-                    }else
-                    {
-                        Console.WriteLine("No vehicles found");
-                    }
-
-                    Console.WriteLine(" \n");
-                    break;
-
-                case 2: //enter vehicle
-                    AddVehicle(Vehicles);
-
-                    Console.WriteLine("Vehicle has now been added \n");
+                    VehicleMenuClass.VehicleMenu();
 
                     break;
-                case 3: //remove a vehicle
-                    Console.WriteLine("Please enter the Vehicle's Index Number to remove");
-                    ProcessMainMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
-                    Console.WriteLine("Vehicle has now been removed \n");
-
-                    break;
-                case 4: //toggle vehicle's active status
-                    Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
-
-                    ProcessMainMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
-
-                    Console.WriteLine("Vehicle's Active Status has now been changed \n");
-
-                    break;
-                case 5: //manage users
+                case 2: //manage users
                     UserMenuClass.UserMenu();
                     break;
 
@@ -93,27 +66,5 @@ public class MainMenuClass
         }
     }
 
-    public static void AddVehicle(List<Vehicle> Vehicles)
-    {
-        Vehicles.Add(new Vehicle());
-
-        Console.WriteLine("Please enter the Policy Id");
-        Vehicles[Vehicles.Count - 1].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
-
-        Console.WriteLine("Please enter the Vehicle's Year");
-        Vehicles[Vehicles.Count - 1].Setyear(Convert.ToInt16(Console.ReadLine()));
-
-        Console.WriteLine("Please enter the Vehicle's Make");
-        Vehicles[Vehicles.Count - 1].Setmake(Console.ReadLine());
-
-        Console.WriteLine("Please enter the Vehicle's Model");
-        Vehicles[Vehicles.Count - 1].Setmodel(Console.ReadLine());
-
-        Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
-
-        Vehicles[Vehicles.Count - 1].SetVehicleNumber(Vehicles.Count);
-
-        ProcessMainMenuItems.SetVehicles(Vehicles);
-    }
-
+    
 }

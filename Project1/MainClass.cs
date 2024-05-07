@@ -1,4 +1,5 @@
-﻿using Project1.Presentation;
+﻿using Project1.Controllers;
+using Project1.Presentation;
 
 namespace Project1;
 
@@ -9,17 +10,18 @@ class MainClass
         // Console.Clear();
 
         MainMenuClass main = new MainMenuClass();
-        bool Login;
+        string Login;
+        string UserRole;
 
         Login = LoginPresentationClass.StartLogin();
 
-        if(Login = false)
+        if(Login == "Exit")
         {
             return;
         }else
         {
-
-            main.MainMenu();
+            UserRole = LoginController.GetRole(Login);
+            main.MainMenu(UserRole);
         }
         
         // MainMenuClass.MainMenu();

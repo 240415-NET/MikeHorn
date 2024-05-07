@@ -4,7 +4,7 @@ using Project1;
 using System.Net;
 
 namespace Project1.Presentation;
-public class MenuClass
+public static class MenuClass
 {
     public static void PrintMenu(string[] MenuItems)
     {

@@ -1,14 +1,20 @@
 Project is intended to allow the user to create, store, recall, and modify vehicles.
 
-A menu will be presented to the user to select from the following:
+First the user must login
+-after validation, the user role is gathered
+
+Second, the main menu will display
+-if user role is Agent, they will only be able to manage vehicles and the manabe users option is not shown to them
+-if user role is Admin or Supervisor, they will also be able to manage users
+
+The manage vehicle menu will be presented to the user to select from the following:
 exit
 list vehicles
 enter vehicle
 remove a vehicle
 toggle vehicle's active status
-manage users
 
-If manage users is chosen from the above menu, the user will be presented the following menu items to choose from:
+the user will be presented the following menu items to choose from:
 exit
 list users
 add user
@@ -28,5 +34,7 @@ Truck, which will be a child of vehicle, showing inheratence
 The Vehicle model has 3 constructors showing overload polymorhpism
 
 All three models show overriding via their ToString method
+
+There will be 2 interfaces
 
 The User model will include a field called UserRole which will dictate what menu items are available to the logged in user
