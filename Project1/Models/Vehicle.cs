@@ -9,7 +9,7 @@ public class Vehicle
     public string make {get; set;}
     public string model {get; set;}
     public bool VehicleStatus {get; set;}
-    public int VehicleNumber {get; set;}
+    public Guid VehicleId {get; set;}
 
     //Constructors
     public Vehicle()
@@ -26,11 +26,11 @@ public class Vehicle
 
     }
 
-    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber) : this(PolicyId, year, make,model)
+    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus) : this(PolicyId, year, make,model)
     {
 
         SetVehicleStatus(VehicleStatus);
-        SetVehicleNumber(VehicleNumber);
+        SetVehicleId();
 
     }
 
@@ -103,14 +103,14 @@ public class Vehicle
     }
 
     //VehicleNumber
-    public int GetVehicleNumber()
+    public Guid GetVehicleId()
     {
-        return this.VehicleNumber;
+        return this.VehicleId;
     }
 
-    public void SetVehicleNumber(int VehicleNumber)
+    public void SetVehicleId()
     {
-        this.VehicleNumber = VehicleNumber;
+        this.VehicleId = Guid.NewGuid();
     }
 
   
@@ -129,7 +129,7 @@ public class Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleNumber}";
+        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Id: {VehicleId}";
     }
     
 }

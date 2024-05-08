@@ -29,7 +29,6 @@ public class UserMenuClass
 
     public static void ProcessUserMenu(int intMenuSelection)
     {
-        ProcessMainMenuItems ProcessMenu = new();
         Console.WriteLine(" \n");
 
         try

@@ -3,7 +3,7 @@ using Project1.DataAccess;
 
 namespace Project1.Controllers;
 
-class ProcessMainMenuItems
+class ProcessVehicleMenuItems
 {
     public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
 
@@ -42,16 +42,16 @@ class ProcessMainMenuItems
     // {
     //     //Full Constructor
     //     //vehicle 0
-    //     Vehicles.Add(new Vehicle(1234, 2018, "Ford", "F150", true, Vehicles.Count));
+    //     Vehicles.Add(new Vehicle(1234, 2018, "Ford", "F150", true));
 
     //     //vehicle 1
-    //     Vehicles.Add(new Vehicle(1234, 2015, "Honda", "Accord", true, Vehicles.Count));
+    //     Vehicles.Add(new Vehicle(1234, 2015, "Honda", "Accord", true));
 
     //     //vehicle 2
-    //     Vehicles.Add(new Vehicle(1234, 2010, "Volkswagon", "Jetta", true, Vehicles.Count));
+    //     Vehicles.Add(new Vehicle(1234, 2010, "Volkswagon", "Jetta", true));
 
     //     //vehicle 3
-    //     Vehicles.Add(new Vehicle(5678, 2020, "Honda", "Civic", true, Vehicles.Count));
+    //     Vehicles.Add(new Vehicle(5678, 2020, "Honda", "Civic", true));
 
     //     //Partial Constructor
     //     //Vehicle 4
@@ -62,13 +62,13 @@ class ProcessMainMenuItems
 
     //     //Trucks
     //     //Vehicle 6
-    //     Vehicles.Add(new Truck(5670, 2020, "International", "LT625", true, 1, 18, "Car Carrier"));
+    //     Vehicles.Add(new Truck(5670, 2020, "International", "LT625", true, 18, "Car Carrier"));
 
     //     // //Vehicle 7
-    //     Vehicles.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 1, 6, "Cement Mixer"));
+    //     Vehicles.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 6, "Cement Mixer"));
 
     //     // //Vehicle 8
-    //     Vehicles.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 1, 4, "Cement Mixer"));
+    //     Vehicles.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 4, "Cement Mixer"));
 
     //     VehicleStore.StoreData(Vehicles, true);
 

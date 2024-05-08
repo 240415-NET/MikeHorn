@@ -9,6 +9,7 @@ public class VehicleMenuClass
 
     public static void VehicleMenu()
     {
+        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
         string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
         
         string? strMenuSelection;
@@ -29,7 +30,7 @@ public class VehicleMenuClass
 
     public static void ProcessVehicleMenu(int intMenuSelection)
     {
-        ProcessMainMenuItems ProcessMenu = new();
+        ProcessVehicleMenuItems ProcessMenu = new();
         Console.WriteLine(" \n");
 
         try
@@ -41,7 +42,7 @@ public class VehicleMenuClass
                     break;
                 case 1: //list vehicles
 
-                    Vehicles = ProcessMainMenuItems.GetVehicles(Vehicles);
+                    Vehicles = ProcessVehicleMenuItems.GetVehicles(Vehicles);
 
                     if(Vehicles != null)
                     {
@@ -66,7 +67,7 @@ public class VehicleMenuClass
                     break;
                 case 3: //remove a vehicle
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
-                    ProcessMainMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessVehicleMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle has now been removed \n");
 
@@ -74,11 +75,14 @@ public class VehicleMenuClass
                 case 4: //toggle vehicle's active status
                     Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
-                    ProcessMainMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessVehicleMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
+                // case 5:
+                //     ProcessVehicleMenuItems.BulkVehicles(Vehicles);
+                //     break;
 
             }
         }
@@ -107,8 +111,6 @@ public class VehicleMenuClass
 
         Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
 
-        Vehicles[Vehicles.Count - 1].SetVehicleNumber(Vehicles.Count);
-
-        ProcessMainMenuItems.SetVehicles(Vehicles);
+        ProcessVehicleMenuItems.SetVehicles(Vehicles);
     }
 }

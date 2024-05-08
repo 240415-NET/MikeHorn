@@ -5,7 +5,7 @@
         "make": "Ford",
         "model": "F150",
         "VehicleStatus": true,
-        "VehicleNumber": 0
+        "VehicleId": "994bcc5c-b21f-432f-8b53-130378f1b9f0"
     },
     {
         "PolicyId": 1234,
@@ -13,7 +13,7 @@
         "make": "Honda",
         "model": "Accord",
         "VehicleStatus": true,
-        "VehicleNumber": 1
+        "VehicleId": "5e9889e1-8a49-444a-acd2-fa3e6fa2ace6"
     },
     {
         "PolicyId": 1234,
@@ -21,7 +21,7 @@
         "make": "Volkswagon",
         "model": "Jetta",
         "VehicleStatus": true,
-        "VehicleNumber": 2
+        "VehicleId": "d39ae95b-6baf-424a-923f-341a5f611744"
     },
     {
         "PolicyId": 5678,
@@ -29,7 +29,7 @@
         "make": "Honda",
         "model": "Civic",
         "VehicleStatus": true,
-        "VehicleNumber": 3
+        "VehicleId": "19aaa163-af8a-4a55-8407-64bea213e1e3"
     },
     {
         "PolicyId": 5678,
@@ -37,7 +37,7 @@
         "make": "Acura",
         "model": "ILX",
         "VehicleStatus": false,
-        "VehicleNumber": 0
+        "VehicleId": "00000000-0000-0000-0000-000000000000"
     },
     {
         "PolicyId": 9876,
@@ -45,7 +45,7 @@
         "make": "Hyundai",
         "model": "Sonata",
         "VehicleStatus": false,
-        "VehicleNumber": 0
+        "VehicleId": "00000000-0000-0000-0000-000000000000"
     },
     {
         "PolicyId": 5670,
@@ -53,7 +53,7 @@
         "make": "International",
         "model": "LT625",
         "VehicleStatus": true,
-        "VehicleNumber": 1
+        "VehicleId": "840fe189-145d-4967-95ac-7c1a6c1b6b38"
     },
     {
         "PolicyId": 4687,
@@ -61,7 +61,7 @@
         "make": "FREIGHTLINER",
         "model": "114sd",
         "VehicleStatus": true,
-        "VehicleNumber": 1
+        "VehicleId": "ad124d15-70e8-428a-81f8-bb602996869e"
     },
     {
         "PolicyId": 1534,
@@ -69,6 +69,6 @@
         "make": "WORKHORSE",
         "model": "W62",
         "VehicleStatus": true,
-        "VehicleNumber": 1
+        "VehicleId": "313d0c2c-a1bd-4aae-97bc-c5e6eb2905bc"
     }
 ]

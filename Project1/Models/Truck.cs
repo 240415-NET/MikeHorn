@@ -11,8 +11,8 @@ public class Truck : Vehicle
 
     }
 
-    public Truck(int PolicyId, int year, string make, string model, bool VehicleStatus, int VehicleNumber, int NumberWheels, string TruckType) 
-    : base(PolicyId, year, make, model, VehicleStatus, VehicleNumber)
+    public Truck(int PolicyId, int year, string make, string model, bool VehicleStatus, int NumberWheels, string TruckType) 
+    : base(PolicyId, year, make, model, VehicleStatus)
     {
         SetNumberWheels(NumberWheels);
         SetTruckType(TruckType);
@@ -69,6 +69,6 @@ public class Truck : Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleNumber}\tNumber of Wheels: {NumberWheels}\tTruck Type: {TruckType}";
+        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleId}\tNumber of Wheels: {NumberWheels}\tTruck Type: {TruckType}";
     }
 }
