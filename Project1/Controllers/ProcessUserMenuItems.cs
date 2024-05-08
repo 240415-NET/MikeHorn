@@ -28,9 +28,7 @@ class ProcessUserMenuItems
 
     }
 
-   
-
-    public static bool UserExists(string UserName)
+       public static bool UserExists(string UserName)
     {
         if(UserStore.FindData(UserName) != null)
         {
@@ -38,5 +36,27 @@ class ProcessUserMenuItems
         }
 
         return false;
+    }
+
+    public static List<User> FindUser(List<User> Users, string userName)
+    {
+        try
+        {
+        // LINQ Query
+            var subsetUsers = from theUser in Users
+                                where theUser.UserName == userName
+                                select theUser;
+
+            List<User> Results = subsetUsers.ToList();
+
+            return Results;
+        }
+        catch (Exception excp)
+        {
+            Console.WriteLine("Error in ProcessUserMenuItems.FindUser");
+            Console.WriteLine($"Error detected {excp.Message}");
+            return null;
+
+        }
     }
 }

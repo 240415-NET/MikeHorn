@@ -19,6 +19,7 @@ exit
 list users
 add user
 remove a user
+search for a user (which will use a Linq query)
 
 There will be 4 tiers or layers to this Project:
 Presentation

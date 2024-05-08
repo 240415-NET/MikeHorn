@@ -2,6 +2,7 @@
 using Project1.Models;
 using Project1.Controllers;
 
+
 namespace Project1.Presentation;
 public class UserMenuClass
 {
@@ -10,7 +11,7 @@ public class UserMenuClass
 
     public static void UserMenu()
     {
-        string[] strMainMenuItems = { "exit", "list users", "add user", "remove a user" };
+        string[] strMainMenuItems = { "exit", "list users", "add user", "remove a user", "search for a user" };
         
         string? strMenuSelection;
         
@@ -72,11 +73,27 @@ public class UserMenuClass
                     Console.WriteLine("User has now been removed \n");
 
                     break;
+                case 4: //search for a user with LINQ
+                            
+                            Users = ProcessUserMenuItems.GetUsers(Users);
+
+                            Console.WriteLine("What are you searching for?");
+                            string strUserName = Console.ReadLine();
+
+                            List<User> subsetUsers = ProcessUserMenuItems.FindUser(Users, strUserName);
+
+                            foreach(User theUser in subsetUsers)
+                            {
+                                Console.WriteLine(theUser);
+                            }
+
+                            break;
 
             }
         }
         catch (Exception excp)
         {
+            Console.WriteLine("Error in UserMenuClass.ProcessUserMenu");
             Console.WriteLine($"Error detected {excp.Message}");
 
         }
