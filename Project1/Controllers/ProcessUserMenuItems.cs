@@ -28,35 +28,25 @@ class ProcessUserMenuItems
 
     }
 
-       public static bool UserExists(string UserName)
+    public static bool UserExists(string UserName)
     {
-        if(UserStore.FindData(UserName) != null)
+        List<User> Users = new();
+
+        List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, UserName);
+
+        if(subsetUsers == null || subsetUsers.Count == 0) //user not found
+        {
+            return false;
+        }else //user(s) found
         {
             return true;
         }
 
-        return false;
     }
 
-    public static List<User> FindUser(List<User> Users, string userName)
+    public static List<User> RetrieveUser(List<User> Users, string userName)
     {
-        try
-        {
-        // LINQ Query
-            var subsetUsers = from theUser in Users
-                                where theUser.UserName == userName
-                                select theUser;
-
-            List<User> Results = subsetUsers.ToList();
-
-            return Results;
-        }
-        catch (Exception excp)
-        {
-            Console.WriteLine("Error in ProcessUserMenuItems.FindUser");
-            Console.WriteLine($"Error detected {excp.Message}");
-            return null;
-
-        }
+        return UserStore.FindUser(Users, userName);
     }
+
 }

@@ -89,5 +89,25 @@ public class UserStorageJSON : IUserDataManagement
     }
 
     
+    public List<User> FindUser(List<User> Users, string userName)
+    {
+        try
+        {
+        // LINQ Query
+            var subsetUsers = from theUser in Users
+                                where theUser.UserName == userName
+                                select theUser;
 
+            List<User> Results = subsetUsers.ToList();
+
+            return Results;
+        }
+        catch (Exception excp)
+        {
+            Console.WriteLine("Error in UserStorageJSON.FindUser");
+            Console.WriteLine($"Error detected {excp.Message}");
+            return null;
+
+        }
+    }
 }

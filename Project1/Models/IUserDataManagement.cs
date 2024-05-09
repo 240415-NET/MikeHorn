@@ -9,6 +9,8 @@ public interface IUserDataManagement
     
 
     public User FindData(string usernameToFind);
+
+    public List<User> FindUser(List<User> Users, string userName);
     
 
 }

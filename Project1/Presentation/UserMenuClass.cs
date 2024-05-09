@@ -80,13 +80,19 @@ public class UserMenuClass
                             Console.WriteLine("What are you searching for?");
                             string strUserName = Console.ReadLine();
 
-                            List<User> subsetUsers = ProcessUserMenuItems.FindUser(Users, strUserName);
+                            List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, strUserName);
 
-                            foreach(User theUser in subsetUsers)
+                            if(subsetUsers == null || subsetUsers.Count == 0) //user not found
                             {
-                                Console.WriteLine(theUser);
+                                Console.WriteLine("Entered user was not found");
+                            }else //user(s) found
+                            {
+                                foreach(User theUser in subsetUsers)
+                                {
+                                    Console.WriteLine(theUser);
+                                }
                             }
-
+                           
                             break;
 
             }
