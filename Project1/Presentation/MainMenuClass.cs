@@ -1,11 +1,8 @@
 
-using Project1.Models;
-using Project1.Controllers;
 
 namespace Project1.Presentation;
 public class MainMenuClass
 {
-    // public List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
     string[] strMainMenuItems;
 

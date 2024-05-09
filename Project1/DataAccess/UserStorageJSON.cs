@@ -63,31 +63,6 @@ public class UserStorageJSON : IUserDataManagement
         }
     }
 
-    public User FindData(string usernameToFind)
-    {
-        //User object to store a user if they are found or NULL if they are not
-        User foundUser = new User();
-
-        try{
-
-            //First, read the string back from our .json file
-            string existingUsersJson = File.ReadAllText(FilePath);
-
-            //Then, we need to serialize the string back into a List of User objects
-            List<User> existingUsersList = JsonSerializer.Deserialize<List<User>>(existingUsersJson);
-            
-            foundUser = existingUsersList.FirstOrDefault(user => user.UserName == usernameToFind);
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        
-        return foundUser;
-
-    }
-
     
     public List<User> FindUser(List<User> Users, string userName)
     {
@@ -110,4 +85,30 @@ public class UserStorageJSON : IUserDataManagement
 
         }
     }
+
+    //obsolete
+    // public User FindData(string usernameToFind)
+    // {
+    //     //User object to store a user if they are found or NULL if they are not
+    //     User foundUser = new User();
+
+    //     try{
+
+    //         //First, read the string back from our .json file
+    //         string existingUsersJson = File.ReadAllText(FilePath);
+
+    //         //Then, we need to serialize the string back into a List of User objects
+    //         List<User> existingUsersList = JsonSerializer.Deserialize<List<User>>(existingUsersJson);
+            
+    //         foundUser = existingUsersList.FirstOrDefault(user => user.UserName == usernameToFind);
+
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         Console.WriteLine(e.Message);
+    //     }
+        
+    //     return foundUser;
+
+    // }
 }

@@ -23,6 +23,8 @@ public class Vehicle
         Setyear(year);
         Setmake(make);
         Setmodel(model);
+        SetVehicleStatus(true);
+        SetVehicleId();
 
     }
 

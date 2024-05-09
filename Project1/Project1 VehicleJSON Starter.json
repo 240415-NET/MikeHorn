@@ -5,7 +5,7 @@
         "make": "Ford",
         "model": "F150",
         "VehicleStatus": true,
-        "VehicleId": "994bcc5c-b21f-432f-8b53-130378f1b9f0"
+        "VehicleId": "f4eed6fc-b088-4fe1-95fb-f5c5d79b41f9"
     },
     {
         "PolicyId": 1234,
@@ -13,7 +13,7 @@
         "make": "Honda",
         "model": "Accord",
         "VehicleStatus": true,
-        "VehicleId": "5e9889e1-8a49-444a-acd2-fa3e6fa2ace6"
+        "VehicleId": "2ad0ff11-cf07-42d2-a63a-0650025fd672"
     },
     {
         "PolicyId": 1234,
@@ -21,7 +21,7 @@
         "make": "Volkswagon",
         "model": "Jetta",
         "VehicleStatus": true,
-        "VehicleId": "d39ae95b-6baf-424a-923f-341a5f611744"
+        "VehicleId": "1607426a-20f5-46bd-a295-6af3a341c2b2"
     },
     {
         "PolicyId": 5678,
@@ -29,23 +29,23 @@
         "make": "Honda",
         "model": "Civic",
         "VehicleStatus": true,
-        "VehicleId": "19aaa163-af8a-4a55-8407-64bea213e1e3"
+        "VehicleId": "6e0def5a-dbfc-4397-a37e-babbfe104be1"
     },
     {
         "PolicyId": 5678,
         "year": 2014,
         "make": "Acura",
         "model": "ILX",
-        "VehicleStatus": false,
-        "VehicleId": "00000000-0000-0000-0000-000000000000"
+        "VehicleStatus": true,
+        "VehicleId": "2357ce8f-ca45-4513-b6d5-774202766bc9"
     },
     {
         "PolicyId": 9876,
         "year": 2016,
         "make": "Hyundai",
         "model": "Sonata",
-        "VehicleStatus": false,
-        "VehicleId": "00000000-0000-0000-0000-000000000000"
+        "VehicleStatus": true,
+        "VehicleId": "facbf32b-4881-4fd2-911b-3ffe9a509c44"
     },
     {
         "PolicyId": 5670,
@@ -53,7 +53,7 @@
         "make": "International",
         "model": "LT625",
         "VehicleStatus": true,
-        "VehicleId": "840fe189-145d-4967-95ac-7c1a6c1b6b38"
+        "VehicleId": "1960c217-945d-46a7-b469-701d9eac8312"
     },
     {
         "PolicyId": 4687,
@@ -61,7 +61,7 @@
         "make": "FREIGHTLINER",
         "model": "114sd",
         "VehicleStatus": true,
-        "VehicleId": "ad124d15-70e8-428a-81f8-bb602996869e"
+        "VehicleId": "de890395-055a-40a3-bccc-839351b15b82"
     },
     {
         "PolicyId": 1534,
@@ -69,6 +69,6 @@
         "make": "WORKHORSE",
         "model": "W62",
         "VehicleStatus": true,
-        "VehicleId": "313d0c2c-a1bd-4aae-97bc-c5e6eb2905bc"
+        "VehicleId": "055709f9-f9ee-403e-be99-0f67b30fdb42"
     }
 ]

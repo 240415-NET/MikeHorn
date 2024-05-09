@@ -60,7 +60,8 @@ public class VehicleMenuClass
                     break;
 
                 case 2: //enter vehicle
-                    AddVehicle(Vehicles);
+
+                    AddVehicle();
 
                     Console.WriteLine("Vehicle has now been added \n");
 
@@ -93,24 +94,29 @@ public class VehicleMenuClass
         }
     }
 
-    public static void AddVehicle(List<Vehicle> Vehicles)
+    public static void AddVehicle()
     {
-        Vehicles.Add(new Vehicle());
+        List<Vehicle> addedVehicle = new();
+
+        addedVehicle.Add(new Vehicle());
+
 
         Console.WriteLine("Please enter the Policy Id");
-        Vehicles[Vehicles.Count - 1].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
+        addedVehicle[0].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
 
         Console.WriteLine("Please enter the Vehicle's Year");
-        Vehicles[Vehicles.Count - 1].Setyear(Convert.ToInt16(Console.ReadLine()));
+        addedVehicle[0].Setyear(Convert.ToInt16(Console.ReadLine()));
 
         Console.WriteLine("Please enter the Vehicle's Make");
-        Vehicles[Vehicles.Count - 1].Setmake(Console.ReadLine());
+        addedVehicle[0].Setmake(Console.ReadLine());
 
         Console.WriteLine("Please enter the Vehicle's Model");
-        Vehicles[Vehicles.Count - 1].Setmodel(Console.ReadLine());
+        addedVehicle[0].Setmodel(Console.ReadLine());
 
-        Vehicles[Vehicles.Count - 1].SetVehicleStatus(true);
+        addedVehicle[0].SetVehicleStatus(true);
 
-        ProcessVehicleMenuItems.SetVehicles(Vehicles);
+        addedVehicle[0].SetVehicleId();
+
+        ProcessVehicleMenuItems.SetVehicles(addedVehicle);
     }
 }

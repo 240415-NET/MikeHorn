@@ -16,7 +16,7 @@ class ProcessVehicleMenuItems
     public static void SetVehicles(List<Vehicle> Vehicles)
     {
 
-        VehicleStore.StoreData(Vehicles, true);
+        VehicleStore.StoreData(Vehicles, false);
     }
 
     public static void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)

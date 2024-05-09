@@ -47,7 +47,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
 
                 ListOfVehicles = JsonSerializer.Deserialize<List<Vehicle>>(ExistingVehiclesJSONFilePath);
 
-                // ListOfVehicles.Add(_Vehicle);
                 ListOfVehicles.AddRange(PassedListOfVehicles);
 
                 string ExistingListOfVehicles = JsonSerializer.Serialize(ListOfVehicles);
@@ -56,7 +55,7 @@ public class VehicleStorageJSON : IVehicleDataManagement
             }
 
         }
-        else //if(!File.Exists(FilePath)) //file doesn't exist and will be created and Vehicle will be added
+        else //file doesn't exist and will be created and Vehicle will be added
         {
             ListOfVehicles.AddRange(PassedListOfVehicles);
 

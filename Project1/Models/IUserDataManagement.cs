@@ -8,7 +8,7 @@ public interface IUserDataManagement
     public  void StoreData(List<User> PassedListOfUsers, bool refresAll);
     
 
-    public User FindData(string usernameToFind);
+    // public User FindData(string usernameToFind);
 
     public List<User> FindUser(List<User> Users, string userName);
     
