@@ -7,8 +7,8 @@ class ProcessVehicleMenuItems
 {
     public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
     public static VehiclesDTO VehiclesObject = new();
-    public static List<Vehicle> VehiclesList = new();
-    public static List<Truck> TrucksList = new();
+    // public static List<Vehicle> VehiclesList = new();
+    // public static List<Truck> TrucksList = new();
 
     public static VehiclesDTO GetVehicles(VehiclesDTO Vehicles)//DTO
     {
@@ -33,6 +33,22 @@ class ProcessVehicleMenuItems
         VehicleStore.StoreData(Vehicles, false);
     }
 
+    public static void RemoveVehicle(VehiclesDTO Vehicles, int intIndex)//DTO
+    {
+        int amountCars = Vehicles.Cars.Count;
+
+        if(intIndex < amountCars)
+        {
+            Vehicles.Cars.RemoveAt(intIndex);
+        }else
+        {
+            Vehicles.Trucks.RemoveAt(intIndex - amountCars);
+        }
+        // Vehicles.RemoveAt(intIndex);
+
+        VehicleStore.StoreData(Vehicles, true);
+
+    }
     public static void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)
     {
         Vehicles.RemoveAt(intIndex);
@@ -40,6 +56,34 @@ class ProcessVehicleMenuItems
         VehicleStore.StoreData(Vehicles, true);
 
     }
+
+    public static void ToggleVehicleStatus(VehiclesDTO Vehicles, int intIndex)//DTO
+    {
+        bool blnVehStatus;
+
+        int amountCars = Vehicles.Cars.Count;
+
+        if(intIndex < amountCars)
+        {
+            blnVehStatus = Vehicles.Cars[intIndex].GetVehicleStatus();
+
+            Vehicles.Cars[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+        }else
+        {
+            blnVehStatus = Vehicles.Trucks[intIndex- amountCars].GetVehicleStatus();
+
+            Vehicles.Trucks[intIndex- amountCars].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+        }
+
+
+        // blnVehStatus = Vehicles[intIndex].GetVehicleStatus();
+
+        // Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+
+        VehicleStore.StoreData(Vehicles, true);
+
+    }
+
     public static void ToggleVehicleStatus(List<Vehicle> Vehicles, int intIndex)
     {
         bool blnVehStatus;
@@ -54,6 +98,8 @@ class ProcessVehicleMenuItems
      public static void AddVehicle(List<string> Answers)
     {
         // List<Vehicle> addedVehicle = new();
+        List<Vehicle> VehiclesList = new();
+        List<Truck> TrucksList = new();
 
         VehiclesList.Add(new Vehicle());
 
@@ -78,6 +124,9 @@ class ProcessVehicleMenuItems
     public static void AddTruck(List<string> Answers)
     {
         // List<Truck> addedTruck = new();
+        List<Vehicle> VehiclesList = new();
+        List<Truck> TrucksList = new();
+
         TrucksList.Add(new Truck());
 
         TrucksList[0].SetPolicyId(Convert.ToInt16(Answers[0]));
