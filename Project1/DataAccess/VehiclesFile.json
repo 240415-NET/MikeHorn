@@ -47,6 +47,14 @@
             "model": "Sonata",
             "VehicleStatus": true,
             "VehicleId": "47ba3c22-59fc-4c95-afa7-d6bf9cffb95b"
+        },
+        {
+            "PolicyId": 2323,
+            "year": 1999,
+            "make": "Chevy",
+            "model": "Nova",
+            "VehicleStatus": true,
+            "VehicleId": "41b68ab1-077c-4981-8f47-b6f82834d23a"
         }
     ],
     "Trucks": [

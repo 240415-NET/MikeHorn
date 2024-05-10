@@ -9,8 +9,8 @@ public class VehicleMenuClass
 
     public static void VehicleMenu()
     {
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
-        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
+        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
+        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
         
         string? strMenuSelection;
         
@@ -81,7 +81,11 @@ public class VehicleMenuClass
 
                 case 2: //enter vehicle
 
-                    AddVehicle();
+                    // AddVehicle();
+                    Console.WriteLine("Is this vehicle a truck? (y/n)");
+
+
+                    AddVehicleQuestions(Console.ReadLine().ToLower() == "y");
 
                     Console.WriteLine("Vehicle has now been added \n");
 
@@ -101,9 +105,9 @@ public class VehicleMenuClass
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                case 5:
-                    ProcessVehicleMenuItems.BulkVehicles();
-                    break;
+                // case 5:
+                //     ProcessVehicleMenuItems.BulkVehicles();
+                //     break;
 
             }
         }
@@ -114,29 +118,62 @@ public class VehicleMenuClass
         }
     }
 
-    public static void AddVehicle()
+    // public static void AddVehicle()
+    // {
+    //     List<Vehicle> addedVehicle = new();
+
+    //     addedVehicle.Add(new Vehicle());
+
+
+    //     Console.WriteLine("Please enter the Policy Id");
+    //     addedVehicle[0].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
+
+    //     Console.WriteLine("Please enter the Vehicle's Year");
+    //     addedVehicle[0].Setyear(Convert.ToInt16(Console.ReadLine()));
+
+    //     Console.WriteLine("Please enter the Vehicle's Make");
+    //     addedVehicle[0].Setmake(Console.ReadLine());
+
+    //     Console.WriteLine("Please enter the Vehicle's Model");
+    //     addedVehicle[0].Setmodel(Console.ReadLine());
+
+    //     addedVehicle[0].SetVehicleStatus(true);
+
+    //     addedVehicle[0].SetVehicleId();
+
+    //     ProcessVehicleMenuItems.SetVehicles(addedVehicle);
+    // }
+
+    public static void AddVehicleQuestions(bool isTruck)
     {
-        List<Vehicle> addedVehicle = new();
-
-        addedVehicle.Add(new Vehicle());
-
+        List<string> addVehicleAnswers = new();
 
         Console.WriteLine("Please enter the Policy Id");
-        addedVehicle[0].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
+        addVehicleAnswers.Add(Console.ReadLine()); // index 0
 
         Console.WriteLine("Please enter the Vehicle's Year");
-        addedVehicle[0].Setyear(Convert.ToInt16(Console.ReadLine()));
+        addVehicleAnswers.Add(Console.ReadLine()); // index 1
 
         Console.WriteLine("Please enter the Vehicle's Make");
-        addedVehicle[0].Setmake(Console.ReadLine());
+        addVehicleAnswers.Add(Console.ReadLine()); // index 2
 
         Console.WriteLine("Please enter the Vehicle's Model");
-        addedVehicle[0].Setmodel(Console.ReadLine());
+        addVehicleAnswers.Add(Console.ReadLine()); // index 3
 
-        addedVehicle[0].SetVehicleStatus(true);
+        if(isTruck == true)//vehicle is a truck
+        {
+            Console.WriteLine("Please enter the number of wheels on the truck");
+            addVehicleAnswers.Add(Console.ReadLine()); // index 4
 
-        addedVehicle[0].SetVehicleId();
+            Console.WriteLine("What is the truck type?");
+            addVehicleAnswers.Add(Console.ReadLine()); // index 5
 
-        ProcessVehicleMenuItems.SetVehicles(addedVehicle);
+            ProcessVehicleMenuItems.AddTruck(addVehicleAnswers);
+        }else
+        {
+            ProcessVehicleMenuItems.AddVehicle(addVehicleAnswers);
+        }
+
     }
+   
 }
