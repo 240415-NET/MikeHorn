@@ -7,6 +7,12 @@ class ProcessVehicleMenuItems
 {
     public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
 
+    public static VehiclesDTO GetVehicles(VehiclesDTO Vehicles)//DTO
+    {
+        Vehicles = VehicleStore.RetrieveData(Vehicles);
+        return Vehicles;
+    }
+
     public static List<Vehicle> GetVehicles(List<Vehicle> Vehicles)
     {
         Vehicles = VehicleStore.RetrieveData(Vehicles);
@@ -38,41 +44,47 @@ class ProcessVehicleMenuItems
     }
 
     //Obsolete
-    // public static void BulkVehicles(List<Vehicle> Vehicles)
-    // {
-    //     //Full Constructor
-    //     //vehicle 0
-    //     Vehicles.Add(new Vehicle(1234, 2018, "Ford", "F150", true));
+    public static void BulkVehicles()
+    {
+        VehiclesDTO VehiclesObject = new();
+        List<Vehicle> VehiclesList = new();
+        List<Truck> TrucksList = new();
+        //Full Constructor
+        //vehicle 0
+        VehiclesList.Add(new Vehicle(1234, 2018, "Ford", "F150", true));
 
-    //     //vehicle 1
-    //     Vehicles.Add(new Vehicle(1234, 2015, "Honda", "Accord", true));
+        //vehicle 1
+        VehiclesList.Add(new Vehicle(1234, 2015, "Honda", "Accord", true));
 
-    //     //vehicle 2
-    //     Vehicles.Add(new Vehicle(1234, 2010, "Volkswagon", "Jetta", true));
+        //vehicle 2
+        VehiclesList.Add(new Vehicle(1234, 2010, "Volkswagon", "Jetta", true));
 
-    //     //vehicle 3
-    //     Vehicles.Add(new Vehicle(5678, 2020, "Honda", "Civic", true));
+        //vehicle 3
+        VehiclesList.Add(new Vehicle(5678, 2020, "Honda", "Civic", true));
 
-    //     //Partial Constructor
-    //     //Vehicle 4
-    //     Vehicles.Add(new Vehicle(5678, 2014, "Acura", "ILX"));
+        //Partial Constructor
+        //Vehicle 4
+        VehiclesList.Add(new Vehicle(5678, 2014, "Acura", "ILX"));
 
-    //     // //Vehicle 5
-    //     Vehicles.Add(new Vehicle(9876, 2016, "Hyundai", "Sonata"));
+        // //Vehicle 5
+        VehiclesList.Add(new Vehicle(9876, 2016, "Hyundai", "Sonata"));
 
-    //     //Trucks
-    //     //Vehicle 6
-    //     Vehicles.Add(new Truck(5670, 2020, "International", "LT625", true, 18, "Car Carrier"));
+        //Trucks
+        //Vehicle 6
+        TrucksList.Add(new Truck(5670, 2020, "International", "LT625", true, 18, "Car Carrier"));
 
-    //     // //Vehicle 7
-    //     Vehicles.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 6, "Cement Mixer"));
+        // //Vehicle 7
+        TrucksList.Add(new Truck(4687, 2024, "FREIGHTLINER", "114sd", true, 6, "Cement Mixer"));
 
-    //     // //Vehicle 8
-    //     Vehicles.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 4, "Cement Mixer"));
+        // //Vehicle 8
+        TrucksList.Add(new Truck(1534, 2009, "WORKHORSE", "W62", true, 4, "Cement Mixer"));
 
-    //     VehicleStore.StoreData(Vehicles, true);
+        VehiclesObject.Cars = VehiclesList;
+        VehiclesObject.Trucks = TrucksList;
 
-    // }
+        VehicleStore.StoreData(VehiclesObject, true);
+
+    }
 
 
 }

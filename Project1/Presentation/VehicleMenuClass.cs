@@ -9,8 +9,8 @@ public class VehicleMenuClass
 
     public static void VehicleMenu()
     {
-        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
+        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
+        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
         
         string? strMenuSelection;
         
@@ -31,6 +31,8 @@ public class VehicleMenuClass
     public static void ProcessVehicleMenu(int intMenuSelection)
     {
         ProcessVehicleMenuItems ProcessMenu = new();
+        VehiclesDTO VehiclesObject = new();
+
         Console.WriteLine(" \n");
 
         try
@@ -42,19 +44,37 @@ public class VehicleMenuClass
                     break;
                 case 1: //list vehicles
 
-                    Vehicles = ProcessVehicleMenuItems.GetVehicles(Vehicles);
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
 
-                    if(Vehicles != null)
+                    if(VehiclesObject != null)
                     {
 
-                        foreach(Vehicle v in Vehicles)
+                        foreach(Vehicle v in VehiclesObject.Cars)
                         {
-                            Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+                            Console.WriteLine($"Index = {VehiclesObject.Cars.IndexOf(v)} {v}");
+                        }
+                        foreach(Truck v in VehiclesObject.Trucks)
+                        {
+                            Console.WriteLine($"Index = {VehiclesObject.Trucks.IndexOf(v) + VehiclesObject.Cars.Count} {v}");
                         }
                     }else
                     {
                         Console.WriteLine("No vehicles found");
                     }
+
+                    // Vehicles = ProcessVehicleMenuItems.GetVehicles(Vehicles);
+
+                    // if(Vehicles != null)
+                    // {
+
+                    //     foreach(Vehicle v in Vehicles)
+                    //     {
+                    //         Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+                    //     }
+                    // }else
+                    // {
+                    //     Console.WriteLine("No vehicles found");
+                    // }
 
                     Console.WriteLine(" \n");
                     break;
@@ -81,9 +101,9 @@ public class VehicleMenuClass
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                // case 5:
-                //     ProcessVehicleMenuItems.BulkVehicles(Vehicles);
-                //     break;
+                case 5:
+                    ProcessVehicleMenuItems.BulkVehicles();
+                    break;
 
             }
         }

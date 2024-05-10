@@ -8,7 +8,7 @@ class MainClass
 {
     static void Main(string[] args)
     {
-        Console.Clear();
+        // Console.Clear();
 
         MainMenuClass main = new MainMenuClass();
 

@@ -1,74 +1,84 @@
-[
-    {
-        "PolicyId": 1234,
-        "year": 2018,
-        "make": "Ford",
-        "model": "F150",
-        "VehicleStatus": true,
-        "VehicleId": "f4eed6fc-b088-4fe1-95fb-f5c5d79b41f9"
-    },
-    {
-        "PolicyId": 1234,
-        "year": 2015,
-        "make": "Honda",
-        "model": "Accord",
-        "VehicleStatus": true,
-        "VehicleId": "2ad0ff11-cf07-42d2-a63a-0650025fd672"
-    },
-    {
-        "PolicyId": 1234,
-        "year": 2010,
-        "make": "Volkswagon",
-        "model": "Jetta",
-        "VehicleStatus": true,
-        "VehicleId": "1607426a-20f5-46bd-a295-6af3a341c2b2"
-    },
-    {
-        "PolicyId": 5678,
-        "year": 2020,
-        "make": "Honda",
-        "model": "Civic",
-        "VehicleStatus": true,
-        "VehicleId": "6e0def5a-dbfc-4397-a37e-babbfe104be1"
-    },
-    {
-        "PolicyId": 5678,
-        "year": 2014,
-        "make": "Acura",
-        "model": "ILX",
-        "VehicleStatus": true,
-        "VehicleId": "2357ce8f-ca45-4513-b6d5-774202766bc9"
-    },
-    {
-        "PolicyId": 9876,
-        "year": 2016,
-        "make": "Hyundai",
-        "model": "Sonata",
-        "VehicleStatus": true,
-        "VehicleId": "facbf32b-4881-4fd2-911b-3ffe9a509c44"
-    },
-    {
-        "PolicyId": 5670,
-        "year": 2020,
-        "make": "International",
-        "model": "LT625",
-        "VehicleStatus": true,
-        "VehicleId": "1960c217-945d-46a7-b469-701d9eac8312"
-    },
-    {
-        "PolicyId": 4687,
-        "year": 2024,
-        "make": "FREIGHTLINER",
-        "model": "114sd",
-        "VehicleStatus": true,
-        "VehicleId": "de890395-055a-40a3-bccc-839351b15b82"
-    },
-    {
-        "PolicyId": 1534,
-        "year": 2009,
-        "make": "WORKHORSE",
-        "model": "W62",
-        "VehicleStatus": true,
-        "VehicleId": "055709f9-f9ee-403e-be99-0f67b30fdb42"
-    }
-]
+{
+    "Cars": [
+        {
+            "PolicyId": 1234,
+            "year": 2018,
+            "make": "Ford",
+            "model": "F150",
+            "VehicleStatus": true,
+            "VehicleId": "9912dd08-94bf-46f4-822b-73524ecd1d0d"
+        },
+        {
+            "PolicyId": 1234,
+            "year": 2015,
+            "make": "Honda",
+            "model": "Accord",
+            "VehicleStatus": true,
+            "VehicleId": "959cac42-d6e4-47d7-9352-e9ab10a86e93"
+        },
+        {
+            "PolicyId": 1234,
+            "year": 2010,
+            "make": "Volkswagon",
+            "model": "Jetta",
+            "VehicleStatus": true,
+            "VehicleId": "d4dab133-ba50-492b-8634-f35ce5e1a76c"
+        },
+        {
+            "PolicyId": 5678,
+            "year": 2020,
+            "make": "Honda",
+            "model": "Civic",
+            "VehicleStatus": true,
+            "VehicleId": "8a54313c-8e3d-4283-a1e5-b7283e0ca957"
+        },
+        {
+            "PolicyId": 5678,
+            "year": 2014,
+            "make": "Acura",
+            "model": "ILX",
+            "VehicleStatus": true,
+            "VehicleId": "0edbb294-14ab-4a67-8080-42b9247cb315"
+        },
+        {
+            "PolicyId": 9876,
+            "year": 2016,
+            "make": "Hyundai",
+            "model": "Sonata",
+            "VehicleStatus": true,
+            "VehicleId": "47ba3c22-59fc-4c95-afa7-d6bf9cffb95b"
+        }
+    ],
+    "Trucks": [
+        {
+            "NumberWheels": 18,
+            "TruckType": "Car Carrier",
+            "PolicyId": 5670,
+            "year": 2020,
+            "make": "International",
+            "model": "LT625",
+            "VehicleStatus": true,
+            "VehicleId": "82c4c78e-bd30-4cbf-8ef4-08b302ec555d"
+        },
+        {
+            "NumberWheels": 6,
+            "TruckType": "Cement Mixer",
+            "PolicyId": 4687,
+            "year": 2024,
+            "make": "FREIGHTLINER",
+            "model": "114sd",
+            "VehicleStatus": true,
+            "VehicleId": "26e9a74a-4c8a-4da9-a146-e7ccbc2324fa"
+        },
+        {
+            "NumberWheels": 4,
+            "TruckType": "Cement Mixer",
+            "PolicyId": 1534,
+            "year": 2009,
+            "make": "WORKHORSE",
+            "model": "W62",
+            "VehicleStatus": true,
+            "VehicleId": "899998bd-9f5b-46a2-afaf-6f4f1f0e8fba"
+        }
+    ]
+}
