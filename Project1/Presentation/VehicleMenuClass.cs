@@ -7,10 +7,17 @@ public class VehicleMenuClass
     public static List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
 
-    public static void VehicleMenu()
+    public static void VehicleMenu(string _UserRole)
     {
-        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
+        string[] strMainMenuItems;
+
+        if(_UserRole == "Admin")
+        {
+            strMainMenuItems = ["exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" ];
+        }else
+        {
+            strMainMenuItems = [ "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" ];
+        }
         
         string? strMenuSelection;
         
@@ -94,9 +101,9 @@ public class VehicleMenuClass
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                // case 5:
-                //     ProcessVehicleMenuItems.BulkVehicles();
-                //     break;
+                case 5:
+                    ProcessVehicleMenuItems.BulkVehicles();
+                    break;
 
             }
         }

@@ -25,14 +25,14 @@ public class MainMenuClass
             strMenuSelection = Console.ReadLine();
             if(MenuClass.ValidateMenuInput(strMenuSelection, strMainMenuItems))
             {
-                ProcessMainMenu(Convert.ToInt16(strMenuSelection));
+                ProcessMainMenu(Convert.ToInt16(strMenuSelection), _UserRole);
             }
         }while (Continue);
 
     }
 
 
-    public void ProcessMainMenu(int intMenuSelection)
+    public void ProcessMainMenu(int intMenuSelection, string _UserRole)
     {
         Console.WriteLine(" \n");
 
@@ -45,7 +45,7 @@ public class MainMenuClass
                     break;
                 case 1: //manage vehicles
 
-                    VehicleMenuClass.VehicleMenu();
+                    VehicleMenuClass.VehicleMenu(_UserRole);
 
                     break;
 
