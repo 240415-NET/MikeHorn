@@ -131,7 +131,7 @@ public class Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Id: {VehicleId}";
+        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicleId: {VehicleId}";
     }
     
 }

@@ -2,8 +2,11 @@ namespace Project1.Models;
 
 public class Truck : Vehicle
 {
-    public int NumberWheels = 4;
-    public string TruckType = "Flatbed Truck";
+    // public int NumberWheels = 4;
+    // public string TruckType = "Flatbed Truck";
+
+    public int NumberWheels {get; set;}
+    public string TruckType {get; set;}
 
     //Constructors
     public Truck()
@@ -69,6 +72,6 @@ public class Truck : Vehicle
         {
             VehicleStatusValue = "Inactive";
         }
-        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicle Number: {VehicleId}\tNumber of Wheels: {NumberWheels}\tTruck Type: {TruckType}";
+        return $"Policy: {PolicyId}\tYear: {year}\tMake: {make}\t\tModel: {model}\tStatus: {VehicleStatusValue}\tVehicleId: {VehicleId}\tNumber of Wheels: {NumberWheels}\tTruck Type: {TruckType}";
     }
 }

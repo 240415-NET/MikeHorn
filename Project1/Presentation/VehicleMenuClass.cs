@@ -7,10 +7,17 @@ public class VehicleMenuClass
     public static List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
 
-    public static void VehicleMenu()
+    public static void VehicleMenu(string _UserRole)
     {
-        // string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" };
-        string[] strMainMenuItems = { "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" };
+        string[] strMainMenuItems;
+
+        if(_UserRole == "Admin")
+        {
+            strMainMenuItems = ["exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" ];
+        }else
+        {
+            strMainMenuItems = [ "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" ];
+        }
         
         string? strMenuSelection;
         
@@ -31,6 +38,8 @@ public class VehicleMenuClass
     public static void ProcessVehicleMenu(int intMenuSelection)
     {
         ProcessVehicleMenuItems ProcessMenu = new();
+        VehiclesDTO VehiclesObject = new();
+
         Console.WriteLine(" \n");
 
         try
@@ -42,14 +51,18 @@ public class VehicleMenuClass
                     break;
                 case 1: //list vehicles
 
-                    Vehicles = ProcessVehicleMenuItems.GetVehicles(Vehicles);
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
 
-                    if(Vehicles != null)
+                    if(VehiclesObject != null)
                     {
 
-                        foreach(Vehicle v in Vehicles)
+                        foreach(Vehicle v in VehiclesObject.Cars)
                         {
-                            Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
+                            Console.WriteLine($"Index = {VehiclesObject.Cars.IndexOf(v)} {v}");
+                        }
+                        foreach(Truck v in VehiclesObject.Trucks)
+                        {
+                            Console.WriteLine($"Index = {VehiclesObject.Trucks.IndexOf(v) + VehiclesObject.Cars.Count} {v}");
                         }
                     }else
                     {
@@ -61,29 +74,36 @@ public class VehicleMenuClass
 
                 case 2: //enter vehicle
 
-                    AddVehicle();
+                    // AddVehicle();
+                    Console.WriteLine("Is this vehicle a truck? (y/n)");
+
+
+                    AddVehicleQuestions(Console.ReadLine().ToLower() == "y");
 
                     Console.WriteLine("Vehicle has now been added \n");
 
                     break;
                 case 3: //remove a vehicle
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
+
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
-                    ProcessVehicleMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessVehicleMenuItems.RemoveVehicle(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle has now been removed \n");
 
                     break;
                 case 4: //toggle vehicle's active status
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
                     Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
-                    ProcessVehicleMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
+                    ProcessVehicleMenuItems.ToggleVehicleStatus(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
 
                     break;
-                // case 5:
-                //     ProcessVehicleMenuItems.BulkVehicles(Vehicles);
-                //     break;
+                case 5:
+                    ProcessVehicleMenuItems.BulkVehicles();
+                    break;
 
             }
         }
@@ -94,29 +114,37 @@ public class VehicleMenuClass
         }
     }
 
-    public static void AddVehicle()
+
+    public static void AddVehicleQuestions(bool isTruck)
     {
-        List<Vehicle> addedVehicle = new();
-
-        addedVehicle.Add(new Vehicle());
-
+        List<string> addVehicleAnswers = new();
 
         Console.WriteLine("Please enter the Policy Id");
-        addedVehicle[0].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
+        addVehicleAnswers.Add(Console.ReadLine()); // index 0
 
         Console.WriteLine("Please enter the Vehicle's Year");
-        addedVehicle[0].Setyear(Convert.ToInt16(Console.ReadLine()));
+        addVehicleAnswers.Add(Console.ReadLine()); // index 1
 
         Console.WriteLine("Please enter the Vehicle's Make");
-        addedVehicle[0].Setmake(Console.ReadLine());
+        addVehicleAnswers.Add(Console.ReadLine()); // index 2
 
         Console.WriteLine("Please enter the Vehicle's Model");
-        addedVehicle[0].Setmodel(Console.ReadLine());
+        addVehicleAnswers.Add(Console.ReadLine()); // index 3
 
-        addedVehicle[0].SetVehicleStatus(true);
+        if(isTruck == true)//vehicle is a truck
+        {
+            Console.WriteLine("Please enter the number of wheels on the truck");
+            addVehicleAnswers.Add(Console.ReadLine()); // index 4
 
-        addedVehicle[0].SetVehicleId();
+            Console.WriteLine("What is the truck type?");
+            addVehicleAnswers.Add(Console.ReadLine()); // index 5
 
-        ProcessVehicleMenuItems.SetVehicles(addedVehicle);
+            ProcessVehicleMenuItems.AddTruck(addVehicleAnswers);
+        }else
+        {
+            ProcessVehicleMenuItems.AddVehicle(addVehicleAnswers);
+        }
+
     }
+   
 }
