@@ -62,20 +62,6 @@ public class VehicleMenuClass
                         Console.WriteLine("No vehicles found");
                     }
 
-                    // Vehicles = ProcessVehicleMenuItems.GetVehicles(Vehicles);
-
-                    // if(Vehicles != null)
-                    // {
-
-                    //     foreach(Vehicle v in Vehicles)
-                    //     {
-                    //         Console.WriteLine("Index = " + Vehicles.IndexOf(v) + " " + v);
-                    //     }
-                    // }else
-                    // {
-                    //     Console.WriteLine("No vehicles found");
-                    // }
-
                     Console.WriteLine(" \n");
                     break;
 
@@ -94,7 +80,6 @@ public class VehicleMenuClass
                     VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
 
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
-                    // ProcessVehicleMenuItems.RemoveVehicle(Vehicles, Convert.ToInt16(Console.ReadLine()));
                     ProcessVehicleMenuItems.RemoveVehicle(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle has now been removed \n");
@@ -104,7 +89,6 @@ public class VehicleMenuClass
                     VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
                     Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
-                    // ProcessVehicleMenuItems.ToggleVehicleStatus(Vehicles, Convert.ToInt16(Console.ReadLine()));
                     ProcessVehicleMenuItems.ToggleVehicleStatus(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
 
                     Console.WriteLine("Vehicle's Active Status has now been changed \n");
@@ -123,31 +107,6 @@ public class VehicleMenuClass
         }
     }
 
-    // public static void AddVehicle()
-    // {
-    //     List<Vehicle> addedVehicle = new();
-
-    //     addedVehicle.Add(new Vehicle());
-
-
-    //     Console.WriteLine("Please enter the Policy Id");
-    //     addedVehicle[0].SetPolicyId(Convert.ToInt16(Console.ReadLine()));
-
-    //     Console.WriteLine("Please enter the Vehicle's Year");
-    //     addedVehicle[0].Setyear(Convert.ToInt16(Console.ReadLine()));
-
-    //     Console.WriteLine("Please enter the Vehicle's Make");
-    //     addedVehicle[0].Setmake(Console.ReadLine());
-
-    //     Console.WriteLine("Please enter the Vehicle's Model");
-    //     addedVehicle[0].Setmodel(Console.ReadLine());
-
-    //     addedVehicle[0].SetVehicleStatus(true);
-
-    //     addedVehicle[0].SetVehicleId();
-
-    //     ProcessVehicleMenuItems.SetVehicles(addedVehicle);
-    // }
 
     public static void AddVehicleQuestions(bool isTruck)
     {

@@ -38,4 +38,6 @@ All three models show overriding via their ToString method
 
 There will be 2 interfaces
 
+There will be one DTO to handle the parent/child vehicle classes
+
 The User model will include a field called UserRole which will dictate what menu items are available to the logged in user

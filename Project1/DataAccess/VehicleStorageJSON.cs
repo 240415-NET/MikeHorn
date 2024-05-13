@@ -23,7 +23,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
         {
 
             return Vehicles;
-            // Vehicles = null;
         }
 
     }
@@ -43,7 +42,7 @@ public class VehicleStorageJSON : IVehicleDataManagement
         {
 
             return Vehicles;
-            // Vehicles = null;
+
         }
 
     }
@@ -77,8 +76,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
         }
         else //file doesn't exist and will be created and Vehicle will be added
         {
-            // ListOfVehicles.Cars.AddRange(PassedListOfVehicles.Cars);
-            // ListOfVehicles.Trucks.AddRange(PassedListOfVehicles.Trucks);
 
             string NewListOfVehicles = JsonSerializer.Serialize(PassedListOfVehicles);
 
@@ -138,7 +135,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
             //Then, we need to serialize the string back into a List of Vehicle objects
             List<Vehicle> existingVehiclesList = JsonSerializer.Deserialize<List<Vehicle>>(existingVehiclesJson);
 
-            // foundVehicle = existingVehiclesList.FirstOrDefault(Vehicle => Vehicle.make == VehiclenameToFind);
 
         }
         catch (Exception e)
