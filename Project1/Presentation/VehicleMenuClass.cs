@@ -7,16 +7,22 @@ public class VehicleMenuClass
     public static List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
 
-    public static void VehicleMenu(string _UserRole)
+    public static string[] strVehicleMenuItems;
+
+    public static void VehicleMenu(string _UserRole, bool isTest = false)
     {
-        string[] strMainMenuItems;
 
         if(_UserRole == "Admin")
         {
-            strMainMenuItems = ["exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" ];
+            strVehicleMenuItems = ["exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status", "add bulk" ];
         }else
         {
-            strMainMenuItems = [ "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" ];
+            strVehicleMenuItems = [ "exit", "list vehicles", "enter vehicle", "remove a vehicle", "toggle vehicle's active status" ];
+        }
+
+        if(isTest)
+        {
+            return;
         }
         
         string? strMenuSelection;
@@ -24,9 +30,9 @@ public class VehicleMenuClass
         do
         {
             Console.WriteLine("Please enter the number of your selection:\n");
-            MenuClass.PrintMenu(strMainMenuItems);
+            MenuClass.PrintMenu(strVehicleMenuItems);
             strMenuSelection = Console.ReadLine();
-            if(MenuClass.ValidateMenuInput(strMenuSelection, strMainMenuItems))
+            if(MenuClass.ValidateMenuInput(strMenuSelection, strVehicleMenuItems))
             {
                 ProcessVehicleMenu(Convert.ToInt16(strMenuSelection));
             }

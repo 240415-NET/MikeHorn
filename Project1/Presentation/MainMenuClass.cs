@@ -4,9 +4,9 @@ namespace Project1.Presentation;
 public class MainMenuClass
 {
     private static bool Continue = true;
-    string[] strMainMenuItems;
+    public string[] strMainMenuItems;
 
-    public void MainMenu(string _UserRole)
+    public void MainMenu(string _UserRole, bool isTest = false)
     {
         if(_UserRole == "Agent") //an agent cannot manage users
         {
@@ -14,6 +14,11 @@ public class MainMenuClass
         }else //only and Admin or Supervisor can manage users
         {
             strMainMenuItems = [ "exit", "manage vehicles", "manage users" ];
+        }
+
+        if(isTest)
+        {
+            return;
         }
         
         string? strMenuSelection;
