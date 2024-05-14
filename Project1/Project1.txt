@@ -41,3 +41,5 @@ There will be 2 interfaces
 There will be one DTO to handle the parent/child vehicle classes
 
 The User model will include a field called UserRole which will dictate what menu items are available to the logged in user
+
+Xunit tests found in the \MikeHorn\Project1.Tests directory

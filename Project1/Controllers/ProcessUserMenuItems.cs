@@ -4,7 +4,7 @@ using Project1.DataAccess;
 namespace Project1.Controllers;
 
 
-class ProcessUserMenuItems
+public class ProcessUserMenuItems
 {
     public static IUserDataManagement UserStore = new UserStorageJSON();
     public static List<User> GetUsers(List<User> Users)
