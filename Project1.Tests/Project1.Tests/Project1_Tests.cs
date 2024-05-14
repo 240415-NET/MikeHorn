@@ -72,13 +72,12 @@ public class Project1_Tests
     public void VehicleMenu_Admin_ReturnTrue(string UserRole)
     {
         //Arrange
-        // VehicleMenuClass VC = new VehicleMenuClass();
         VehicleMenuClass.VehicleMenu(UserRole, true);
         string shouldHave = "add bulk";
         
 
         //Act
-        bool testResult = VehicleMenuClass.strMainMenuItems.Contains(shouldHave);
+        bool testResult = VehicleMenuClass.strVehicleMenuItems.Contains(shouldHave);
 
 
         //Assert
@@ -91,13 +90,12 @@ public class Project1_Tests
     public void VehicleMenu_NotAdmin_ReturnFalse(string UserRole)
     {
         //Arrange
-        // VehicleMenuClass VC = new VehicleMenuClass();
         VehicleMenuClass.VehicleMenu(UserRole, true);
         string shouldHave = "add bulk";
         
 
         //Act
-        bool testResult = VehicleMenuClass.strMainMenuItems.Contains(shouldHave);
+        bool testResult = VehicleMenuClass.strVehicleMenuItems.Contains(shouldHave);
 
 
         //Assert
