@@ -142,8 +142,8 @@ public class VehicleMenuClass
             Console.WriteLine("Please enter the number of wheels on the truck");
             addVehicleAnswers.Add(Console.ReadLine()); // index 4
 
-            Console.WriteLine("What is the truck type?");
-            addVehicleAnswers.Add(Console.ReadLine()); // index 5
+            // Console.WriteLine("What is the truck type?");
+            addVehicleAnswers.Add(TruckTypeMenu()); // index 5
 
             ProcessVehicleMenuItems.AddTruck(addVehicleAnswers);
         }else
@@ -151,6 +151,27 @@ public class VehicleMenuClass
             ProcessVehicleMenuItems.AddVehicle(addVehicleAnswers);
         }
 
+    }
+
+    public static string TruckTypeMenu()
+    {
+        Continue = true;
+        string[] strTruckTypes;
+        strTruckTypes = ["Car Carrier", "Cement Mixer", "Flatbed Truck", "Garbage Truck", "Refrigerated Truck", "Tow Truck - one axle", "Tow Truck- two axle"];
+
+        do
+        {
+            Console.WriteLine("Please enter the number of the Truck Type:\n");
+            MenuClass.PrintMenu(strTruckTypes);
+            string strMenuSelection = Console.ReadLine();
+            if(MenuClass.ValidateMenuInput(strMenuSelection, strTruckTypes))
+            {
+                // ProcessVehicleMenu(Convert.ToInt16(strMenuSelection));
+                return strTruckTypes[Convert.ToInt16(strMenuSelection)];
+            }
+        }while (Continue);
+
+        return "Flatbed Truck";
     }
    
 }
