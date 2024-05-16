@@ -2,8 +2,6 @@ namespace Project1.Models;
 
 public class Truck : Vehicle
 {
-    // public int NumberWheels = 4;
-    // public string TruckType = "Flatbed Truck";
 
     public int NumberWheels {get; set;}
     public string TruckType {get; set;}
