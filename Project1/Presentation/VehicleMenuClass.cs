@@ -4,7 +4,6 @@ using Project1.Controllers;
 namespace Project1.Presentation;
 public class VehicleMenuClass
 {
-    public static List<Vehicle> Vehicles = new List<Vehicle>();
     private static bool Continue = true;
 
     public static string[] strVehicleMenuItems;

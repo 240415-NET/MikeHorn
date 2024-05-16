@@ -26,26 +26,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
         }
 
     }
-    public List<Vehicle> RetrieveData(List<Vehicle> Vehicles)//Vehicle
-    {
-
-        if (File.Exists(FilePath)) //file exists and will read the file and then add the new Vehicle
-        {
-            string VehiclesJSONFilePath = File.ReadAllText(FilePath);
-
-            Vehicles = JsonSerializer.Deserialize<List<Vehicle>>(VehiclesJSONFilePath);
-
-            return Vehicles;
-
-        }
-        else //file doesn't exist and will be created and Vehicle will be added
-        {
-
-            return Vehicles;
-
-        }
-
-    }
 
     public void StoreData(VehiclesDTO PassedListOfVehicles, bool refreshAll)//DTO 
     {
@@ -84,42 +64,6 @@ public class VehicleStorageJSON : IVehicleDataManagement
         }
     }
 
-    public void StoreData(List<Vehicle> PassedListOfVehicles, bool refreshAll)//Vehicle
-    {
-        List<Vehicle> ListOfVehicles = new List<Vehicle>();
-
-        if (File.Exists(FilePath)) //file exists and will read the file and then add the new Vehicle
-        {
-            if (refreshAll)//if need to just add full list due to a delete or change
-            {
-                string refreshListOfVehicles = JsonSerializer.Serialize(PassedListOfVehicles);
-                File.WriteAllText(FilePath, refreshListOfVehicles);
-
-            }
-            else
-            { //if need to add to what was existing
-                string ExistingVehiclesJSONFilePath = File.ReadAllText(FilePath);
-
-                ListOfVehicles = JsonSerializer.Deserialize<List<Vehicle>>(ExistingVehiclesJSONFilePath);
-
-                ListOfVehicles.AddRange(PassedListOfVehicles);
-
-                string ExistingListOfVehicles = JsonSerializer.Serialize(ListOfVehicles);
-
-                File.WriteAllText(FilePath, ExistingListOfVehicles);
-            }
-
-        }
-        else //file doesn't exist and will be created and Vehicle will be added
-        {
-            ListOfVehicles.AddRange(PassedListOfVehicles);
-
-            string NewListOfVehicles = JsonSerializer.Serialize(ListOfVehicles);
-
-            File.WriteAllText(FilePath, NewListOfVehicles);
-
-        }
-    }
 
     public Vehicle FindData(string VehiclenameToFind)
     {

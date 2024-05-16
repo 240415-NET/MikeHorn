@@ -16,18 +16,7 @@ class ProcessVehicleMenuItems
         return Vehicles;
     }
 
-    public static List<Vehicle> GetVehicles(List<Vehicle> Vehicles)
-    {
-        Vehicles = VehicleStore.RetrieveData(Vehicles);
-        return Vehicles;
-    }
-
     public static void SetVehicles(VehiclesDTO Vehicles)
-    {
-
-        VehicleStore.StoreData(Vehicles, false);
-    }
-    public static void SetVehicles(List<Vehicle> Vehicles)
     {
 
         VehicleStore.StoreData(Vehicles, false);
@@ -45,13 +34,6 @@ class ProcessVehicleMenuItems
             Vehicles.Trucks.RemoveAt(intIndex - amountCars);
         }
         // Vehicles.RemoveAt(intIndex);
-
-        VehicleStore.StoreData(Vehicles, true);
-
-    }
-    public static void RemoveVehicle(List<Vehicle> Vehicles, int intIndex)
-    {
-        Vehicles.RemoveAt(intIndex);
 
         VehicleStore.StoreData(Vehicles, true);
 
@@ -76,28 +58,13 @@ class ProcessVehicleMenuItems
         }
 
 
-        // blnVehStatus = Vehicles[intIndex].GetVehicleStatus();
-
-        // Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
-
         VehicleStore.StoreData(Vehicles, true);
 
     }
 
-    public static void ToggleVehicleStatus(List<Vehicle> Vehicles, int intIndex)
-    {
-        bool blnVehStatus;
-        blnVehStatus = Vehicles[intIndex].GetVehicleStatus();
-
-        Vehicles[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
-
-        VehicleStore.StoreData(Vehicles, true);
-
-    }
 
      public static void AddVehicle(List<string> Answers)
     {
-        // List<Vehicle> addedVehicle = new();
         List<Vehicle> VehiclesList = new();
         List<Truck> TrucksList = new();
 
