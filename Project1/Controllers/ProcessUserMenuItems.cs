@@ -7,9 +7,11 @@ namespace Project1.Controllers;
 public class ProcessUserMenuItems
 {
     public static IUserDataManagement UserStore = new UserStorageJSON();
+    public static IUserDataManagement UserStoreSQL = new UserStorageSQL();
     public static List<User> GetUsers(List<User> Users)
     {
-        Users = UserStore.RetrieveData(Users);
+        // Users = UserStore.RetrieveData(Users);
+        Users = UserStoreSQL.RetrieveData(Users);
         return Users;
     }
 
