@@ -31,6 +31,25 @@ public class User
         
     }
 
+    public User(Guid UserId, string UserName, string UserRole)
+    {
+        this.UserId = UserId;
+        this.UserName = UserName;
+        if(UserRole == "Supervisor")
+        {
+            this.UserRole = "Supervisor";
+        }
+        else if(UserRole == "Admin")
+        {
+            this.UserRole = "Admin";
+        }
+        else
+        {
+            this.UserRole = "Agent";
+        }
+        
+    }
+
     public override string ToString()
     {
 

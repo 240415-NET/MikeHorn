@@ -20,6 +20,7 @@ class MainClass
             return;
         }else //user found
         {
+            Console.WriteLine($"user role is {Users[0].UserRole}");
             main.MainMenu(Users[0].UserRole);
         }
         

@@ -9,6 +9,8 @@ public interface IUserDataManagement
     
 
     public List<User> FindUser(List<User> Users, string userName);
+
+    public void DeleteData(Guid Id);
     
 
 }
