@@ -40,9 +40,8 @@ public class UserMenuClass
                     Continue = false;
                     break;
                 case 1: //list users
-
                     //Retrieve Users from Data Store and put into Users List
-                    Users = ProcessUserMenuItems.GetUsers(Users);
+                    Users = ProcessUserMenuItems.GetUsers();
 
                     if(Users != null)
                     {
@@ -58,7 +57,7 @@ public class UserMenuClass
                     Console.WriteLine(" \n");
                     break;
                 case 2: //add user
-
+                    Users.Clear();
                     AddUser(Users);
 
                     Console.WriteLine("User has now been added \n");
@@ -73,27 +72,46 @@ public class UserMenuClass
                     Console.WriteLine("User has now been removed \n");
 
                     break;
-                case 4: //search for a user with LINQ
-                            
-                            Users = ProcessUserMenuItems.GetUsers(Users);
+                    case 4: //search for user using SQL
+                        
+                        Console.WriteLine("What is the User Name you are searching for?");
+                        string strUserName = Console.ReadLine();
 
-                            Console.WriteLine("What are you searching for?");
-                            string strUserName = Console.ReadLine();
+                        Users = ProcessUserMenuItems.RetrieveUser(strUserName);
 
-                            List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, strUserName);
+                        if(Users.Count == 0) //Users not found
+                        {
+                            Console.WriteLine("User was not found");
 
-                            if(subsetUsers == null || subsetUsers.Count == 0) //user not found
+                        }else
+                        {
+                            foreach(User theUser in Users)
                             {
-                                Console.WriteLine("Entered user was not found");
-                            }else //user(s) found
-                            {
-                                foreach(User theUser in subsetUsers)
-                                {
-                                    Console.WriteLine(theUser);
-                                }
+                                Console.WriteLine(theUser);
                             }
+                        } 
+                        break;
+                //XXX Obsolete needed for JSON
+                // case 4: //search for a user with LINQ 
+                //             Users = ProcessUserMenuItems.GetUsers(Users);
+
+                //             Console.WriteLine("What are you searching for?");
+                //             string strUserName = Console.ReadLine();
+
+                //             List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, strUserName);
+
+                //             if(subsetUsers == null || subsetUsers.Count == 0) //user not found
+                //             {
+                //                 Console.WriteLine("Entered user was not found");
+                //             }else //user(s) found
+                //             {
+                //                 foreach(User theUser in subsetUsers)
+                //                 {
+                //                     Console.WriteLine(theUser);
+                //                 }
+                //             }
                            
-                            break;
+                //             break;
 
             }
         }

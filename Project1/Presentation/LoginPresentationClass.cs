@@ -11,19 +11,32 @@ public class LoginPresentationClass
 
         Console.WriteLine("Please enter your username to Login or 0 to exit");
         strSent = Console.ReadLine();
+        //Determine if user exists
+        Users = ProcessUserMenuItems.RetrieveUser(strSent);
 
-        Users = ProcessUserMenuItems.GetUsers(Users);
-
-        List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, strSent);
-
-        if(subsetUsers == null || subsetUsers.Count == 0) //user not found
+        if(Users.Count == 0) //Users not found
         {
             Console.WriteLine("User was not found");
             return null;
-        }else //user(s) found
+        }else
         {
-            return subsetUsers;
+            return Users;
         }
+
+
+        //XXX Obsolete needed for JSON
+        // Users = ProcessUserMenuItems.GetUsers(Users);
+
+        // List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, strSent);
+
+        // if(subsetUsers == null || subsetUsers.Count == 0) //user not found
+        // {
+        //     Console.WriteLine("User was not found");
+        //     return null;
+        // }else //user(s) found
+        // {
+        //     return subsetUsers;
+        // }
 
     }
 
