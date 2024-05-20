@@ -25,7 +25,6 @@ public class ProcessUserMenuItems
         UserStore.StoreData(Users, true);
     }
 
-    //TODO fix this
     public static void RemoveUser(List<User> Users, int intIndex)
     {
         //for JSON
