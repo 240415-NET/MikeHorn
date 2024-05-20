@@ -58,6 +58,24 @@ public class UserStorageSQL : IUserDataManagement
 
     }
     
+    public void DeleteData(Guid Id)
+    {
+        using SqlConnection connection = new SqlConnection(connectionString);
+
+        connection.Open();
+
+        string userQuery =
+        @"DELETE FROM Users WHERE UserId = @UserId;";
+
+        using SqlCommand queryResults = new SqlCommand(userQuery, connection);
+
+        queryResults.Parameters.AddWithValue("@UserId", Convert.ToString(Id));
+
+
+        queryResults.ExecuteNonQuery();
+
+        connection.Close();
+    }
 
     public List<User> FindUser(List<User> Users, string userName)
     {

@@ -86,4 +86,5 @@ public class UserStorageJSON : IUserDataManagement
         }
     }
 
+    public void DeleteData(Guid Id){}
 }

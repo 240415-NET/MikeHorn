@@ -28,11 +28,16 @@ public class ProcessUserMenuItems
     //TODO fix this
     public static void RemoveUser(List<User> Users, int intIndex)
     {
-        Users.RemoveAt(intIndex);
+        //for JSON
+        // Users.RemoveAt(intIndex);
 
-        UserStore.StoreData(Users, true);
+        // UserStore.StoreData(Users, true);
+
+        //for SQL
+        UserStore.DeleteData(Users[intIndex].UserId);
 
     }
+
 
     public static bool UserExists(string UserName)
     {
