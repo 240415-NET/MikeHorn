@@ -15,14 +15,15 @@ class MainClass
         List<User> Users = LoginPresentationClass.StartLogin();
 
 
-        if(Users == null) //User not found
-        {
-            return;
-        }else //user found
+        if(Users.Count == 1)// one user found
         {
             Console.WriteLine($"user role is {Users[0].UserRole}");
             main.MainMenu(Users[0].UserRole);
+        }else //something else found
+        {
+            return;
         }
+
         
     }
 }

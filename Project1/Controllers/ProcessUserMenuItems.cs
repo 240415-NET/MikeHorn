@@ -9,20 +9,19 @@ public class ProcessUserMenuItems
     
     // public static IUserDataManagement UserStore = new UserStorageJSON();
     public static IUserDataManagement UserStore = new UserStorageSQL();
-    public static List<User> GetUsers(List<User> Users)
+
+    public static List<User> GetUsers()
     {
-        // Users = UserStore.RetrieveData(Users);
-        Users = UserStore.RetrieveData(Users);
-        return Users;
+        return UserStore.RetrieveData();
+
     }
 
     public static void SetUsers(List<User> Users, string UserName, string UserRole)
     {
-        Users.Clear();
 
         Users.Add(new User(UserName, UserRole));
 
-        UserStore.StoreData(Users, true);
+        UserStore.StoreData(Users[0], true);
     }
 
     public static void RemoveUser(List<User> Users, int intIndex)
@@ -42,7 +41,7 @@ public class ProcessUserMenuItems
     {
         List<User> Users = new();
 
-        List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(Users, UserName);
+        List<User> subsetUsers = ProcessUserMenuItems.RetrieveUser(UserName);
 
         if(subsetUsers == null || subsetUsers.Count == 0) //user not found
         {
@@ -54,9 +53,10 @@ public class ProcessUserMenuItems
 
     }
 
-    public static List<User> RetrieveUser(List<User> Users, string userName)
+    // public static List<User> RetrieveUser(List<User> Users, string userName)
+    public static List<User> RetrieveUser(string userName)
     {
-        return UserStore.FindUser(Users, userName);
+        return UserStore.FindUser(userName);
     }
 
 }

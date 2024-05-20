@@ -10,9 +10,9 @@ public class UserStorageSQL : IUserDataManagement
     //Get actual connection string
     public static string connectionString = File.ReadAllText(sqlConnectionFilePath); 
 
-    public List<User> RetrieveData(List<User> Users)
+    public List<User> RetrieveData()
     {
-        Users.Clear();
+        List<User> Users = new();
 
         using SqlConnection connection = new SqlConnection(connectionString);
 
@@ -34,8 +34,8 @@ public class UserStorageSQL : IUserDataManagement
         return Users;
     }
     
-   
-    public void StoreData(List<User> PassedListOfUsers, bool refresAll)
+
+    public void StoreData(User PassedUser, bool refresAll)
     {
         using SqlConnection connection = new SqlConnection(connectionString);
 
@@ -48,9 +48,9 @@ public class UserStorageSQL : IUserDataManagement
 
         using SqlCommand queryResults = new SqlCommand(userQuery, connection);
 
-        queryResults.Parameters.AddWithValue("@UserId", Convert.ToString(PassedListOfUsers[0].UserId));
-        queryResults.Parameters.AddWithValue("@UserName", PassedListOfUsers[0].UserName);
-        queryResults.Parameters.AddWithValue("@UserRole", PassedListOfUsers[0].UserRole);
+        queryResults.Parameters.AddWithValue("@UserId", Convert.ToString(PassedUser.UserId));
+        queryResults.Parameters.AddWithValue("@UserName", PassedUser.UserName);
+        queryResults.Parameters.AddWithValue("@UserRole", PassedUser.UserRole);
 
         queryResults.ExecuteNonQuery();
 
@@ -77,9 +77,11 @@ public class UserStorageSQL : IUserDataManagement
         connection.Close();
     }
 
-    public List<User> FindUser(List<User> Users, string userName)
+    //XXX Obsolete used for JSON
+    // public List<User> FindUser(List<User> Users, string userName)
+    public List<User> FindUser(string userName)
     {
-        Users.Clear();
+        List<User> Users = new();
 
         using SqlConnection connection = new SqlConnection(connectionString);
 
