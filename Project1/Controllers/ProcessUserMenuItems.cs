@@ -6,22 +6,26 @@ namespace Project1.Controllers;
 
 public class ProcessUserMenuItems
 {
-    public static IUserDataManagement UserStore = new UserStorageJSON();
-    public static IUserDataManagement UserStoreSQL = new UserStorageSQL();
+    
+    // public static IUserDataManagement UserStore = new UserStorageJSON();
+    public static IUserDataManagement UserStore = new UserStorageSQL();
     public static List<User> GetUsers(List<User> Users)
     {
         // Users = UserStore.RetrieveData(Users);
-        Users = UserStoreSQL.RetrieveData(Users);
+        Users = UserStore.RetrieveData(Users);
         return Users;
     }
 
     public static void SetUsers(List<User> Users, string UserName, string UserRole)
     {
+        Users.Clear();
+
         Users.Add(new User(UserName, UserRole));
 
         UserStore.StoreData(Users, true);
     }
 
+    //TODO fix this
     public static void RemoveUser(List<User> Users, int intIndex)
     {
         Users.RemoveAt(intIndex);

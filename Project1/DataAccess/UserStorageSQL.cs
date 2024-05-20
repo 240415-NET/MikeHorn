@@ -12,6 +12,8 @@ public class UserStorageSQL : IUserDataManagement
 
     public List<User> RetrieveData(List<User> Users)
     {
+        Users.Clear();
+
         using SqlConnection connection = new SqlConnection(connectionString);
 
         connection.Open();
@@ -35,12 +37,51 @@ public class UserStorageSQL : IUserDataManagement
    
     public void StoreData(List<User> PassedListOfUsers, bool refresAll)
     {
+        using SqlConnection connection = new SqlConnection(connectionString);
+
+        connection.Open();
+
+        string userQuery =
+        @"INSERT INTO Users (UserId, UserName, UserRole)
+        VALUES
+        (@UserId, @UserName, @UserRole);";
+
+        using SqlCommand queryResults = new SqlCommand(userQuery, connection);
+
+        queryResults.Parameters.AddWithValue("@UserId", Convert.ToString(PassedListOfUsers[0].UserId));
+        queryResults.Parameters.AddWithValue("@UserName", PassedListOfUsers[0].UserName);
+        queryResults.Parameters.AddWithValue("@UserRole", PassedListOfUsers[0].UserRole);
+
+        queryResults.ExecuteNonQuery();
+
+        connection.Close();
 
     }
     
 
     public List<User> FindUser(List<User> Users, string userName)
     {
-        return null;
+        Users.Clear();
+
+        using SqlConnection connection = new SqlConnection(connectionString);
+
+        connection.Open();
+
+        string userQuery = @"SELECT UserId, UserName, UserRole FROM Users WHERE UserName = @userName;";
+
+        using SqlCommand queryResults = new SqlCommand(userQuery, connection);
+        queryResults.Parameters.AddWithValue("@userName", userName);
+
+        using SqlDataReader reader = queryResults.ExecuteReader();
+
+        while (reader.Read())
+        {
+            Users.Add(new User(Guid.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2)));
+        }
+
+        connection.Close();
+
+
+        return Users;
     }
 }
