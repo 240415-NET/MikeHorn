@@ -95,8 +95,8 @@ public class VehicleStorageSQL : IVehicleDataManagement
     public void StoreData(VehiclesDTO PassedListOfVehicles, bool refresAll)
     {
         using SqlConnection connection = new SqlConnection(connectionString);
-        Vehicle Car = PassedListOfVehicles.Cars[0];
-        Truck Truck = PassedListOfVehicles.Trucks[0];
+        
+        
 
 
         connection.Open();
@@ -104,6 +104,7 @@ public class VehicleStorageSQL : IVehicleDataManagement
         //Store Cars
         if(PassedListOfVehicles.Cars.Count > 0) //Car passed
         {
+            Vehicle Car = PassedListOfVehicles.Cars[0];
             string userQuery =
             @"INSERT INTO Cars (PolicyId ,year ,make ,model ,VehicleStatus ,VehicleId)
             VALUES
@@ -122,6 +123,7 @@ public class VehicleStorageSQL : IVehicleDataManagement
             queryResults.ExecuteNonQuery();
         }else if(PassedListOfVehicles.Trucks.Count > 0)  //Truck passed
         {
+            Truck Truck = PassedListOfVehicles.Trucks[0];
             string userQuery =
             @"INSERT INTO Trucks (PolicyId ,year ,make ,model ,VehicleStatus ,VehicleId ,NumberWheels ,TruckType)
             VALUES

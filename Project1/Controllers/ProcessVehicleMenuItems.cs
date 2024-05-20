@@ -68,6 +68,7 @@ class ProcessVehicleMenuItems
 
      public static void AddVehicle(List<string> Answers)
     {
+        VehiclesDTO VehiclesCarObject = new();
         List<Vehicle> VehiclesList = new();
         List<Truck> TrucksList = new();
 
@@ -85,15 +86,15 @@ class ProcessVehicleMenuItems
 
         VehiclesList[0].SetVehicleId();
 
-        VehiclesObject.Cars = VehiclesList;
-        VehiclesObject.Trucks = TrucksList;
+        VehiclesCarObject.Cars = VehiclesList;
+        VehiclesCarObject.Trucks = TrucksList;
 
-        ProcessVehicleMenuItems.SetVehicles(VehiclesObject);
+        ProcessVehicleMenuItems.SetVehicles(VehiclesCarObject);
     }
 
     public static void AddTruck(List<string> Answers)
     {
-        // List<Truck> addedTruck = new();
+        VehiclesDTO VehiclesTruckObject = new();
         List<Vehicle> VehiclesList = new();
         List<Truck> TrucksList = new();
 
@@ -115,10 +116,10 @@ class ProcessVehicleMenuItems
 
         TrucksList[0].SetVehicleId();
 
-        VehiclesObject.Cars = VehiclesList;
-        VehiclesObject.Trucks = TrucksList;
+        VehiclesTruckObject.Cars = VehiclesList;
+        VehiclesTruckObject.Trucks = TrucksList;
 
-        ProcessVehicleMenuItems.SetVehicles(VehiclesObject);
+        ProcessVehicleMenuItems.SetVehicles(VehiclesTruckObject);
     }
 
     //Can only be called if user is Admin
