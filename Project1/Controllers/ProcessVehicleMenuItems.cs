@@ -5,15 +5,18 @@ namespace Project1.Controllers;
 
 class ProcessVehicleMenuItems
 {
-    public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
+    //XXX Obsolete used for JSON
+    // public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
+    public static IVehicleDataManagement VehicleStore = new VehicleStorageSQL();
     public static VehiclesDTO VehiclesObject = new();
     // public static List<Vehicle> VehiclesList = new();
     // public static List<Truck> TrucksList = new();
 
-    public static VehiclesDTO GetVehicles(VehiclesDTO Vehicles)//DTO
+    public static VehiclesDTO GetVehicles()//DTO
     {
-        Vehicles = VehicleStore.RetrieveData(Vehicles);
-        return Vehicles;
+        // Vehicles = VehicleStore.RetrieveData();
+        // return Vehicles;
+        return VehicleStore.RetrieveData();
     }
 
     public static void SetVehicles(VehiclesDTO Vehicles)

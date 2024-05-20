@@ -19,6 +19,13 @@ public class Truck : Vehicle
         SetTruckType(TruckType);
     }
 
+    public Truck(int PolicyId, int year, string make, string model, bool VehicleStatus, Guid VehicleId, int NumberWheels, string TruckType) 
+    : base(PolicyId, year, make, model, VehicleStatus, VehicleId)
+    {
+        this.NumberWheels = NumberWheels;
+        this.TruckType = TruckType;
+    }
+
     //Getters and Setters
     //NumberWheels
     public int GetNumberWheels()

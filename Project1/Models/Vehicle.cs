@@ -28,11 +28,17 @@ public class Vehicle
 
     }
 
-    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus) : this(PolicyId, year, make,model)
+    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus) : this(PolicyId, year, make, model)
     {
 
         SetVehicleStatus(VehicleStatus);
         SetVehicleId();
+
+    }
+
+    public Vehicle(int PolicyId, int year, string make, string model, bool VehicleStatus, Guid VehicleId) : this(PolicyId, year, make, model,VehicleStatus)
+    {
+        this.VehicleId = VehicleId;
 
     }
 

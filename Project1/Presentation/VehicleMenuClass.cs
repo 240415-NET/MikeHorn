@@ -56,7 +56,7 @@ public class VehicleMenuClass
                     break;
                 case 1: //list vehicles
 
-                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles();
 
                     if(VehiclesObject != null)
                     {
@@ -89,7 +89,7 @@ public class VehicleMenuClass
 
                     break;
                 case 3: //remove a vehicle
-                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles();
 
                     Console.WriteLine("Please enter the Vehicle's Index Number to remove");
                     ProcessVehicleMenuItems.RemoveVehicle(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
@@ -98,7 +98,7 @@ public class VehicleMenuClass
 
                     break;
                 case 4: //toggle vehicle's active status
-                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles(VehiclesObject);
+                    VehiclesObject = ProcessVehicleMenuItems.GetVehicles();
                     Console.WriteLine("Please enter the Vehicle's Index Number to toggle its activate status");
 
                     ProcessVehicleMenuItems.ToggleVehicleStatus(VehiclesObject, Convert.ToInt16(Console.ReadLine()));
