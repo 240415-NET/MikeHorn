@@ -29,39 +29,45 @@ class ProcessVehicleMenuItems
     {
         int amountCars = Vehicles.Cars.Count;
 
-        if(intIndex < amountCars)
+        if(intIndex < amountCars) //chosen index is for a car
         {
-            Vehicles.Cars.RemoveAt(intIndex);
-        }else
-        {
-            Vehicles.Trucks.RemoveAt(intIndex - amountCars);
-        }
-        // Vehicles.RemoveAt(intIndex);
+            //XXX obsolete needed for JSON
+            // Vehicles.Cars.RemoveAt(intIndex);
+            VehicleStore.DeleteData(Vehicles.Cars[intIndex].VehicleId, true);
 
-        VehicleStore.StoreData(Vehicles, true);
+        }else //chosen index is for a truck
+        {
+            // Vehicles.Trucks.RemoveAt(intIndex - amountCars);
+            VehicleStore.DeleteData(Vehicles.Trucks[intIndex - amountCars].VehicleId, false);
+        }
+
+        // VehicleStore.StoreData(Vehicles, true);
 
     }
 
     public static void ToggleVehicleStatus(VehiclesDTO Vehicles, int intIndex)//DTO
     {
-        bool blnVehStatus;
+        // bool blnVehStatus;
 
         int amountCars = Vehicles.Cars.Count;
 
         if(intIndex < amountCars)
         {
-            blnVehStatus = Vehicles.Cars[intIndex].GetVehicleStatus();
+            //XXX obsolete needed for JSON
+            // blnVehStatus = Vehicles.Cars[intIndex].GetVehicleStatus();
 
-            Vehicles.Cars[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+            // Vehicles.Cars[intIndex].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+            VehicleStore.ToggleVehicleStatus(Vehicles.Cars[intIndex].VehicleId, true);
         }else
         {
-            blnVehStatus = Vehicles.Trucks[intIndex- amountCars].GetVehicleStatus();
+            // blnVehStatus = Vehicles.Trucks[intIndex- amountCars].GetVehicleStatus();
 
-            Vehicles.Trucks[intIndex- amountCars].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+            // Vehicles.Trucks[intIndex- amountCars].SetVehicleStatus(Vehicle.Toggle_VehicleStatus(blnVehStatus));
+            VehicleStore.ToggleVehicleStatus(Vehicles.Trucks[intIndex - amountCars].VehicleId, false);
         }
 
 
-        VehicleStore.StoreData(Vehicles, true);
+        // VehicleStore.StoreData(Vehicles, true);
 
     }
 

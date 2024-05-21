@@ -77,8 +77,6 @@ public class UserStorageSQL : IUserDataManagement
         connection.Close();
     }
 
-    //XXX Obsolete used for JSON
-    // public List<User> FindUser(List<User> Users, string userName)
     public List<User> FindUser(string userName)
     {
         List<User> Users = new();
