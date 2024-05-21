@@ -173,6 +173,34 @@ public class VehicleStorageSQL : IVehicleDataManagement
         connection.Close();
     }
 
+    public void ToggleVehicleStatus(Guid Id, bool isCar)
+    {
+        string vehicleQuery = "";
+        using SqlConnection connection = new SqlConnection(connectionString);
+
+        connection.Open();
+
+        if(isCar) //a car
+        {
+            vehicleQuery = @"UPDATE Cars
+                            SET VehicleStatus = ~VehicleStatus
+                            WHERE VehicleId = @VehicleId;";
+        }else //a truck
+        {
+            vehicleQuery = @"UPDATE Trucks
+                            SET VehicleStatus = ~VehicleStatus
+                            WHERE VehicleId = @VehicleId;";
+        }
+
+        using SqlCommand queryResults = new SqlCommand(vehicleQuery, connection);
+
+        queryResults.Parameters.AddWithValue("@VehicleId", Convert.ToString(Id));
+
+
+        queryResults.ExecuteNonQuery();
+
+        connection.Close();
+    }
     public Vehicle FindData(string valueToFind)
     {
         throw new NotImplementedException();

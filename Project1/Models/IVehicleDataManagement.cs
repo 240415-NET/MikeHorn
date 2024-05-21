@@ -9,6 +9,7 @@ public interface IVehicleDataManagement
     public  void StoreData(VehiclesDTO PassedListOfVehicles, bool refresAll);//DTO
 
     public void DeleteData(Guid Id, bool isCar);
+    public void ToggleVehicleStatus(Guid Id, bool isCar);
     
     public Vehicle FindData(string valueToFind);
 
