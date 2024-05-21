@@ -78,7 +78,7 @@ public class Project1_Tests
         
 
         //Act
-        bool testResult = VehicleMenuClass.strMainMenuItems.Contains(shouldHave);
+        bool testResult = VehicleMenuClass.strVehicleMenuItems.Contains(shouldHave);
 
 
         //Assert
@@ -97,7 +97,7 @@ public class Project1_Tests
         
 
         //Act
-        bool testResult = VehicleMenuClass.strMainMenuItems.Contains(shouldHave);
+        bool testResult = VehicleMenuClass.strVehicleMenuItems.Contains(shouldHave);
 
 
         //Assert
