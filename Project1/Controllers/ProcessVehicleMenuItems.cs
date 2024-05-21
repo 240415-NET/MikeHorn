@@ -29,16 +29,19 @@ class ProcessVehicleMenuItems
     {
         int amountCars = Vehicles.Cars.Count;
 
-        if(intIndex < amountCars)
+        if(intIndex < amountCars) //chosen index is for a car
         {
-            Vehicles.Cars.RemoveAt(intIndex);
-        }else
-        {
-            Vehicles.Trucks.RemoveAt(intIndex - amountCars);
-        }
-        // Vehicles.RemoveAt(intIndex);
+            //XXX obsolete needed for JSON
+            // Vehicles.Cars.RemoveAt(intIndex);
+            VehicleStore.DeleteData(Vehicles.Cars[intIndex].VehicleId, true);
 
-        VehicleStore.StoreData(Vehicles, true);
+        }else //chosen index is for a truck
+        {
+            // Vehicles.Trucks.RemoveAt(intIndex - amountCars);
+            VehicleStore.DeleteData(Vehicles.Trucks[intIndex - amountCars].VehicleId, false);
+        }
+
+        // VehicleStore.StoreData(Vehicles, true);
 
     }
 
