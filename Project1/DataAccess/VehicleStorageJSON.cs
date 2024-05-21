@@ -7,25 +7,31 @@ public class VehicleStorageJSON : IVehicleDataManagement
 {
     public static readonly string FilePath = ".//DataAccess//VehiclesFile.json";
 
-    public VehiclesDTO RetrieveData(VehiclesDTO Vehicles)//DTO
+    public VehiclesDTO RetrieveData()
     {
-
-        if (File.Exists(FilePath)) //file exists and will read the file and then add the new Vehicle
-        {
-            string VehiclesJSONFilePath = File.ReadAllText(FilePath);
-
-            Vehicles = JsonSerializer.Deserialize<VehiclesDTO>(VehiclesJSONFilePath);
-
-            return Vehicles;
-
-        }
-        else //file doesn't exist and will be created and Vehicle will be added
-        {
-
-            return Vehicles;
-        }
-
+        return null;
     }
+
+    //XXX Obsolete     
+    // public VehiclesDTO RetrieveData(VehiclesDTO Vehicles)//DTO
+    // {
+
+    //     if (File.Exists(FilePath)) //file exists and will read the file and then add the new Vehicle
+    //     {
+    //         string VehiclesJSONFilePath = File.ReadAllText(FilePath);
+
+    //         Vehicles = JsonSerializer.Deserialize<VehiclesDTO>(VehiclesJSONFilePath);
+
+    //         return Vehicles;
+
+    //     }
+    //     else //file doesn't exist and will be created and Vehicle will be added
+    //     {
+
+    //         return Vehicles;
+    //     }
+
+    // }
 
     public void StoreData(VehiclesDTO PassedListOfVehicles, bool refreshAll)//DTO 
     {

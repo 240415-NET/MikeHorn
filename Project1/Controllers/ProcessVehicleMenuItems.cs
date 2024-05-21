@@ -5,15 +5,18 @@ namespace Project1.Controllers;
 
 class ProcessVehicleMenuItems
 {
-    public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
+    //XXX Obsolete used for JSON
+    // public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
+    public static IVehicleDataManagement VehicleStore = new VehicleStorageSQL();
     public static VehiclesDTO VehiclesObject = new();
     // public static List<Vehicle> VehiclesList = new();
     // public static List<Truck> TrucksList = new();
 
-    public static VehiclesDTO GetVehicles(VehiclesDTO Vehicles)//DTO
+    public static VehiclesDTO GetVehicles()//DTO
     {
-        Vehicles = VehicleStore.RetrieveData(Vehicles);
-        return Vehicles;
+        // Vehicles = VehicleStore.RetrieveData();
+        // return Vehicles;
+        return VehicleStore.RetrieveData();
     }
 
     public static void SetVehicles(VehiclesDTO Vehicles)
@@ -65,6 +68,7 @@ class ProcessVehicleMenuItems
 
      public static void AddVehicle(List<string> Answers)
     {
+        VehiclesDTO VehiclesCarObject = new();
         List<Vehicle> VehiclesList = new();
         List<Truck> TrucksList = new();
 
@@ -82,15 +86,15 @@ class ProcessVehicleMenuItems
 
         VehiclesList[0].SetVehicleId();
 
-        VehiclesObject.Cars = VehiclesList;
-        VehiclesObject.Trucks = TrucksList;
+        VehiclesCarObject.Cars = VehiclesList;
+        VehiclesCarObject.Trucks = TrucksList;
 
-        ProcessVehicleMenuItems.SetVehicles(VehiclesObject);
+        ProcessVehicleMenuItems.SetVehicles(VehiclesCarObject);
     }
 
     public static void AddTruck(List<string> Answers)
     {
-        // List<Truck> addedTruck = new();
+        VehiclesDTO VehiclesTruckObject = new();
         List<Vehicle> VehiclesList = new();
         List<Truck> TrucksList = new();
 
@@ -112,10 +116,10 @@ class ProcessVehicleMenuItems
 
         TrucksList[0].SetVehicleId();
 
-        VehiclesObject.Cars = VehiclesList;
-        VehiclesObject.Trucks = TrucksList;
+        VehiclesTruckObject.Cars = VehiclesList;
+        VehiclesTruckObject.Trucks = TrucksList;
 
-        ProcessVehicleMenuItems.SetVehicles(VehiclesObject);
+        ProcessVehicleMenuItems.SetVehicles(VehiclesTruckObject);
     }
 
     //Can only be called if user is Admin

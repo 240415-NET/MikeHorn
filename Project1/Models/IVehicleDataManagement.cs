@@ -2,7 +2,9 @@ namespace Project1.Models;
 
 public interface IVehicleDataManagement
 {
-    public VehiclesDTO RetrieveData(VehiclesDTO Vehicles);//DTO
+    //XXX Obsolete used for JSON
+    // public VehiclesDTO RetrieveData(VehiclesDTO Vehicles);//DTO
+    public VehiclesDTO RetrieveData();//DTO
 
     public  void StoreData(VehiclesDTO PassedListOfVehicles, bool refresAll);//DTO
     
