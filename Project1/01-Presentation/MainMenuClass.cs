@@ -8,6 +8,7 @@ public class MainMenuClass
 
     public void MainMenu(string _UserRole, bool isTest = false)
     {
+        //mark 04
         if(_UserRole == "Agent") //an agent cannot manage users
         {
             strMainMenuItems = [ "exit", "manage vehicles" ];

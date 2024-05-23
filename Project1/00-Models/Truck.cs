@@ -1,5 +1,5 @@
 namespace Project1.Models;
-
+//mark 02
 public class Truck : Vehicle
 {
 

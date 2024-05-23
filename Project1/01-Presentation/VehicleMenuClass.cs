@@ -7,7 +7,7 @@ public class VehicleMenuClass
     private static bool Continue = true;
 
     public static string[] strVehicleMenuItems;
-
+    
     public static void VehicleMenu(string _UserRole, bool isTest = false)
     {
 
@@ -43,6 +43,7 @@ public class VehicleMenuClass
     public static void ProcessVehicleMenu(int intMenuSelection)
     {
         ProcessVehicleMenuItems ProcessMenu = new();
+        //mark 05
         VehiclesDTO VehiclesObject = new();
 
         Console.WriteLine(" \n");
@@ -55,7 +56,7 @@ public class VehicleMenuClass
                     Continue = false;
                     break;
                 case 1: //list vehicles
-
+                    //mark 06
                     VehiclesObject = ProcessVehicleMenuItems.GetVehicles();
 
                     if(VehiclesObject != null)

@@ -9,7 +9,7 @@ public class VehicleStorageSQL : IVehicleDataManagement
     public static string sqlConnectionFilePath = @"C:\Users\A219146\OneDrive - Government Employees Insurance Company\NET Bootcamp\SQL\Project1\Project1Connection.txt";
     //Get actual connection string
     public static string connectionString = File.ReadAllText(sqlConnectionFilePath);
-
+    //mark 09
     public VehiclesDTO RetrieveData()
     {
         VehiclesDTO Vehicles = new();
