@@ -7,11 +7,12 @@ class ProcessVehicleMenuItems
 {
     //XXX Obsolete used for JSON
     // public static IVehicleDataManagement VehicleStore = new VehicleStorageJSON();
+    //mark 07
     public static IVehicleDataManagement VehicleStore = new VehicleStorageSQL();
     public static VehiclesDTO VehiclesObject = new();
     // public static List<Vehicle> VehiclesList = new();
     // public static List<Truck> TrucksList = new();
-
+    //mark 08
     public static VehiclesDTO GetVehicles()//DTO
     {
         // Vehicles = VehicleStore.RetrieveData();
