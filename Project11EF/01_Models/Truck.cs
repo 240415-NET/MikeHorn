@@ -1,4 +1,4 @@
-namespace Project1.API.Models;
+namespace Project11EF.API.Models;
 //mark 02
 public class Truck : Vehicle
 {

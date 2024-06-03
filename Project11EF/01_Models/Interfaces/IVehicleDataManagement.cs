@@ -1,4 +1,4 @@
-namespace Project1.API.Models;
+namespace Project11EF.API.Models;
 
 public interface IVehicleDataManagement
 {
