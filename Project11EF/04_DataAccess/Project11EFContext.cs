@@ -17,12 +17,12 @@ public class Project11EFContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Vehicles>().UseTpcMappingStrategy()
+        modelBuilder.Entity<Vehicle>().UseTpcMappingStrategy()
             .ToTable("Cars");
-        modelBuilder.Entity<Trucks>()
+        modelBuilder.Entity<Truck>()
             .ToTable("Trucks");
         
-        modelBuilder.Entity<Users>()
+        modelBuilder.Entity<User>()
             .ToTable("Users");
     }
 
