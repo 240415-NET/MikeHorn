@@ -7,32 +7,7 @@ namespace Project1.Tests;
 
 public class Project1_Tests
 {
-    // [Fact]
-    // public void UserExists_False()
-    // {
-    //     //Arrange
-        
-
-    //     //Act
-    //     bool testResult =  ProcessUserMenuItems.UserExists("aaa");
-
-    //     //Assert
-    //     Assert.False(testResult);
-    // }
-
-    // [Fact]
-    // public void UserExists_True()
-    // {
-    //     //Arrange
-        
-
-    //     //Act
-    //     bool testResult =  ProcessUserMenuItems.UserExists("OFlores");
-
-    //     //Assert
-    //     Assert.True(testResult);
-    // }
-
+  
     [Fact]
     public void MainMenu_Agent_UserRole_False()
     {

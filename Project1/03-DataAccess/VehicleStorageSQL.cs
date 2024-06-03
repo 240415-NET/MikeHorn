@@ -91,7 +91,7 @@ public class VehicleStorageSQL : IVehicleDataManagement
 
         return Vehicles;
     }
-
+    //mark 10
     public void StoreData(VehiclesDTO PassedListOfVehicles, bool refresAll)
     {
         using SqlConnection connection = new SqlConnection(connectionString);
@@ -147,7 +147,7 @@ public class VehicleStorageSQL : IVehicleDataManagement
 
         connection.Close();
     }
-
+    //mark 11
     public void DeleteData(Guid Id, bool isCar)
     {
         string vehicleQuery = "";
