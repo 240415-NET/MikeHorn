@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Project1.API.Services;
-using Project1.API.Models;
+using Project11EF.API.Services;
+using Project11EF.API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
