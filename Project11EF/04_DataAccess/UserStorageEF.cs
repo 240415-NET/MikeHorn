@@ -12,9 +12,9 @@ public class UserStorageEF : IUserStorageEF
         userContext = userContextFromBuilder;
     }
 
-    public async Task<User?> GetUserByNamefromDBAsync(User usertoFindFromUserService)
+    public async Task<User?> GetUserByNamefromDBAsync(string usernametoFindFromUserService)
     {
-        User? foundUser = await userContext.Users.SingleOrDefaultAsync(user => user.UserName == usertoFindFromUserService.UserName);
+        User? foundUser = await userContext.Users.SingleOrDefaultAsync(user => user.UserName == usernametoFindFromUserService);
 
         return foundUser;
     }

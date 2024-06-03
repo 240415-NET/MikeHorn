@@ -17,13 +17,14 @@ public class UserContoller : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> PostNewUser(User userfromFrontEnd)
+    public async Task<ActionResult<User>> PostNewUser(string usernameFromFrontEnd, string userRoleFromFrontEnd)
     {
         try
         {
-            await userService.CreateNewUserAsync(userfromFrontEnd);
+            User newUser = new User(usernameFromFrontEnd, userRoleFromFrontEnd);
+            await userService.CreateNewUserAsync(newUser);
 
-            return Ok(userfromFrontEnd);
+            return Ok(newUser);
         }
         catch(Exception e)
         {
@@ -33,11 +34,11 @@ public class UserContoller : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<User>> GetUserByUsername(User userToFindFromFrontEnd)
+    public async Task<ActionResult<User>> GetUserByUsername(string usernameToFindFromFrontEnd)
     {
         try
         {
-            return await userService.GetUserByUsernameAsync(userToFindFromFrontEnd);
+            return await userService.GetUserByUsernameAsync(usernameToFindFromFrontEnd);
 
         }
         catch(Exception e)
