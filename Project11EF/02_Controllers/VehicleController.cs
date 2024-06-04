@@ -31,4 +31,22 @@ public class VehicleContoller : ControllerBase
         }
 
     }
+
+    //Store Truck
+     [HttpPost("/Vehicle/Truck")]
+    public async Task<ActionResult<Truck>> PostNewTruck(Truck newTruckfromFrontEnd)
+    {
+        try
+        {
+            Truck newTruck = new Truck(newTruckfromFrontEnd.PolicyId, newTruckfromFrontEnd.year, newTruckfromFrontEnd.make, newTruckfromFrontEnd.model, newTruckfromFrontEnd.VehicleStatus, newTruckfromFrontEnd.NumberWheels, newTruckfromFrontEnd.TruckType);
+            await vehicleService.CreateNewTruckAsync(newTruck);
+
+            return Ok(newTruck);
+        }
+        catch(Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+
+    }
 }
