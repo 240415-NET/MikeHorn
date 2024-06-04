@@ -11,6 +11,11 @@ builder.Services.AddScoped<IUserService, UserService>();
 // This adds our UserStorageEFRepo (data-access layer), that our UserService asks for.
 builder.Services.AddScoped<IUserStorageEF, UserStorageEF>();
 
+// This adds our VehicleService, that our VehicleController then asks for
+builder.Services.AddScoped<IVehicleService, VehicleService>();
+// This adds our VehicleStorageEFRepo (data-access layer), that our VehicleService asks for.
+builder.Services.AddScoped<IVehicleStorageEF, VehicleStorageEF>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
