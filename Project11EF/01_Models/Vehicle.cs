@@ -1,6 +1,5 @@
 namespace Project11EF.API.Models;
 
-//mark 01
 public class Vehicle
 {
     //Fields

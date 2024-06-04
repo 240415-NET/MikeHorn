@@ -1,0 +1,15 @@
+namespace Project11EF.API.Models;
+
+public interface IUserDataManagement
+{
+ 
+    public List<User> RetrieveData();
+    
+    public void StoreData(User PassedfUser, bool refresAll);
+    
+    public List<User> FindUser(string userName);
+
+    public void DeleteData(Guid Id);
+    
+
+}
