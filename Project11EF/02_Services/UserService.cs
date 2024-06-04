@@ -24,25 +24,16 @@ public class UserService : IUserService
         {
             throw new Exception("User role cannot be blank.");
         }
-        else if (Convert.ToBoolean(UserExists(newUserFromController.UserName)) == true)
+        else if (UserExists(newUserFromController.UserName).Result == false)
         {
             await userStorageEFObject.CreateUserInDBAsync(newUserFromController);
             return newUserFromController;
-            // User? foundUser = await userStorageEFObject.GetUserByNamefromDBAsync(newUserFromController.UserName);
 
-            // if (foundUser != null)
-            // {
-            //     await userStorageEFObject.CreateUserInDBAsync(newUserFromController);
-            //     return newUserFromController;
-            // }
-            // else
-            // {
-            //     throw new Exception("User not found in DB?");
-            // }
 
         }else
         {
-            throw new Exception("User not found in DB?");
+
+            return null;
         }
 
     }
@@ -62,7 +53,8 @@ public class UserService : IUserService
 
                 if (foundUser == null)
                 {
-                    throw new Exception("User not found in DB?");
+
+                    return null;
                 }
 
                 return foundUser;
