@@ -5,7 +5,7 @@ namespace Project11EF.API.Controllers;
 
 [ApiController]
 [Route("Vehicle")]
-public class VehicleContoller
+public class VehicleContoller : ControllerBase
 {
-    
+
 }
