@@ -12,6 +12,8 @@ public class VehicleStorageEF : IVehicleStorageEF
         vehicleContext = vehicleContextFromBuilder;
     }
 
+    /** Create **************************************************************************/
+    //Car
     public async Task<Vehicle> CreateVehicleInDBAsync(Vehicle newVehicleFromVehicleService)
     {
         vehicleContext.Vehicles.Add(newVehicleFromVehicleService);
@@ -20,7 +22,7 @@ public class VehicleStorageEF : IVehicleStorageEF
 
         return newVehicleFromVehicleService;
     }
-
+    //Truck
     public async Task<Truck> CreateTruckInDBAsync(Truck newTruckFromVehicleService)
     {
         vehicleContext.Trucks.Add(newTruckFromVehicleService);
@@ -30,4 +32,10 @@ public class VehicleStorageEF : IVehicleStorageEF
         return newTruckFromVehicleService;
     }
 
+    /** Get All **************************************************************************/
+    //Car
+    public List<Vehicle> GetAllVehicles()
+    {
+        return vehicleContext.Vehicles.ToList();
+    }
 }

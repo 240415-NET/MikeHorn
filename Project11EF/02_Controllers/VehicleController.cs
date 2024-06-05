@@ -14,6 +14,7 @@ public class VehicleContoller : ControllerBase
         vehicleService = vehicleServiceFromBuilder;
     }
 
+    /** Create **************************************************************************/
     //Store Car
      [HttpPost("/Vehicle/Car")]
     public async Task<ActionResult<Vehicle>> PostNewVehicle(Vehicle newVehiclefromFrontEnd)
@@ -48,5 +49,13 @@ public class VehicleContoller : ControllerBase
             return BadRequest(e.Message);
         }
 
+    }
+
+    /** Get All **************************************************************************/
+    //Car
+    [HttpGet("/Vehicle/Car")]
+    public List<Vehicle> GetAllVehicles()
+    {
+        return vehicleService.GetAllVehicles();
     }
 }

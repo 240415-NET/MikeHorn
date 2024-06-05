@@ -5,4 +5,6 @@ public interface IVehicleStorageEF
     public Task<Vehicle> CreateVehicleInDBAsync(Vehicle newVehicleFromVehicleService);
 
     public Task<Truck> CreateTruckInDBAsync(Truck newTruckFromVehicleService);
+
+    public List<Vehicle> GetAllVehicles();
 }

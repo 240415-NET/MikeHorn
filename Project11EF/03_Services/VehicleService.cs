@@ -11,7 +11,7 @@ public class VehicleService : IVehicleService
     {
         vehicleStorageEFObject = vehicleStorageEFObjectFromBuilder;
     }
-
+    /** Create **************************************************************************/
     //Car
     public async Task<Vehicle> CreateNewVehicleAsync(Vehicle newVehicleFromController)
     {
@@ -26,5 +26,12 @@ public class VehicleService : IVehicleService
         await vehicleStorageEFObject.CreateTruckInDBAsync(newTruckFromController);
         return newTruckFromController;
 
+    }
+
+    /** Get All **************************************************************************/
+    //Car
+    public List<Vehicle> GetAllVehicles()
+    {
+        return vehicleStorageEFObject.GetAllVehicles();
     }
 }
