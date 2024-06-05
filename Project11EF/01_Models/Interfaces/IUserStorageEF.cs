@@ -4,4 +4,5 @@ public interface IUserStorageEF
 {
     public Task<User?> GetUserByNamefromDBAsync(string usernametoFindFromUserService);
     public Task<User> CreateUserInDBAsync(User newUserFromUserService);
+    public void DeleteUserFromDBAsync(User userFromUserService);
 }

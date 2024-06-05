@@ -45,4 +45,16 @@ public class UserContoller : ControllerBase
         }
     }
 
+    [HttpDelete]
+    public async Task<User> DeleteUserByUsername(string usernameToDeleteFromFrontEnd)
+    {
+        try
+        {
+            return await userService.DeleteUserByUsernameAsync(usernameToDeleteFromFrontEnd);
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+    }
 }

@@ -23,7 +23,7 @@ public class UserService : IUserService
         {
             throw new Exception("User role cannot be blank.");
         }
-        else if (UserExists(newUserFromController.UserName).Result == false)
+        else if (await UserExistsAsync(newUserFromController.UserName) == false)
         {
             await userStorageEFObject.CreateUserInDBAsync(newUserFromController);
             return newUserFromController;
@@ -66,7 +66,7 @@ public class UserService : IUserService
         }
     }
 
-    public async Task<bool> UserExists(string userNameFromCreateNewUserAsync)
+    public async Task<bool> UserExistsAsync(string userNameFromCreateNewUserAsync)
     {
         User? foundUser = await userStorageEFObject.GetUserByNamefromDBAsync(userNameFromCreateNewUserAsync);
         if (foundUser == null)
@@ -77,5 +77,16 @@ public class UserService : IUserService
             return true;
         }
         
+    }
+
+    public async Task<User> DeleteUserByUsernameAsync(string usernameFromUserController)
+    {
+        User? userToDelete = await userStorageEFObject.GetUserByNamefromDBAsync(usernameFromUserController);
+
+        userStorageEFObject.DeleteUserFromDBAsync(userToDelete);
+
+        return userToDelete;
+
+
     }
 }

@@ -27,5 +27,11 @@ public class UserStorageEF : IUserStorageEF
 
         return newUserFromUserService;
     }
+
+    public async void DeleteUserFromDBAsync(User userFromUserService)
+    {
+        userContext.Users.Remove(userFromUserService);
+        await userContext.SaveChangesAsync();
+    }
 }
 
