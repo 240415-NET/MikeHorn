@@ -33,9 +33,15 @@ public class VehicleStorageEF : IVehicleStorageEF
     }
 
     /** Get All **************************************************************************/
-    //Car
+    //Cars
     public List<Vehicle> GetAllVehicles()
     {
-        return vehicleContext.Vehicles.ToList();
+        return vehicleContext.Vehicles.OfType<Vehicle>().Where(v => v.GetType() == typeof(Vehicle)).ToList();
+    }
+
+    //Trucks
+    public List<Truck> GetAllTrucks()
+    {
+        return vehicleContext.Trucks.ToList();
     }
 }

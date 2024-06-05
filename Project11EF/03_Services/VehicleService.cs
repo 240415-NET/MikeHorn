@@ -29,9 +29,14 @@ public class VehicleService : IVehicleService
     }
 
     /** Get All **************************************************************************/
-    //Car
+    //Cars
     public List<Vehicle> GetAllVehicles()
     {
         return vehicleStorageEFObject.GetAllVehicles();
+    }
+    //Trucks
+    public List<Truck> GetAllTrucks()
+    {
+        return vehicleStorageEFObject.GetAllTrucks();
     }
 }

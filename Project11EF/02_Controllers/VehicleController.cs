@@ -52,10 +52,17 @@ public class VehicleContoller : ControllerBase
     }
 
     /** Get All **************************************************************************/
-    //Car
+    //Cars
     [HttpGet("/Vehicle/Car")]
     public List<Vehicle> GetAllVehicles()
     {
         return vehicleService.GetAllVehicles();
+    }
+
+    //Trucks
+    [HttpGet("/Vehicle/Truck")]
+    public List<Truck> GetAllTrucks()
+    {
+        return vehicleService.GetAllTrucks();
     }
 }

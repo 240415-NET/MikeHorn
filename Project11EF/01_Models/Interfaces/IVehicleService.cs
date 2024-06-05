@@ -6,4 +6,5 @@ public interface IVehicleService
     public Task<Truck> CreateNewTruckAsync(Truck newTruckFromController);
 
     public List<Vehicle> GetAllVehicles();
+    public List<Truck> GetAllTrucks();
 }
