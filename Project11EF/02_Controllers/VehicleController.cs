@@ -65,4 +65,19 @@ public class VehicleContoller : ControllerBase
     {
         return vehicleService.GetAllTrucks();
     }
+    /** Get by VehicleId **************************************************************************/
+    //Cars
+    [HttpGet("/Vehicle/Car/{VehicleId}")]
+    public async Task<Vehicle?> GetVehicleById(Guid VehicleId)
+    {
+        return await vehicleService.GetVehicleByIdAsync(VehicleId);
+    }
+
+    /** Update **************************************************************************/
+    //Car
+    [HttpPut("/Vehicle/Car")]
+    public async Task<Vehicle> UpdateVehicle(Vehicle vehicleToUpdateFromFrontEnd)
+    {
+        return await vehicleService.UpdateVehicleAsync(vehicleToUpdateFromFrontEnd);
+    }
 }

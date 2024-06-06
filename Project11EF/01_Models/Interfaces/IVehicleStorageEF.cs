@@ -8,4 +8,6 @@ public interface IVehicleStorageEF
 
     public List<Vehicle> GetAllVehicles();
     public List<Truck> GetAllTrucks();
+    public Task<Vehicle?> GetVehicleByIdAsync(Guid vehicleIdToGetFromController);
+    public Task<Vehicle?> UpdateVehicleAsync(Vehicle vehicleToUpdateFromVehicleService);
 }

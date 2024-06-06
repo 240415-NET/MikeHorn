@@ -39,4 +39,18 @@ public class VehicleService : IVehicleService
     {
         return vehicleStorageEFObject.GetAllTrucks();
     }
+
+    /** Get by VehicleId **************************************************************************/
+    //Cars
+    public async Task<Vehicle> GetVehicleByIdAsync(Guid vehicleIdToGetFromController)
+    {
+        return await vehicleStorageEFObject.GetVehicleByIdAsync(vehicleIdToGetFromController);
+    }
+
+    /** Update **************************************************************************/
+    //Car
+    public async Task<Vehicle?> UpdateVehicleAsync(Vehicle vehicleToUpdateFromController)
+    {
+        return await vehicleStorageEFObject.UpdateVehicleAsync(vehicleToUpdateFromController);
+    }
 }

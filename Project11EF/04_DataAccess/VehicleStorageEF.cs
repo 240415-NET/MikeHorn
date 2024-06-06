@@ -44,4 +44,22 @@ public class VehicleStorageEF : IVehicleStorageEF
     {
         return vehicleContext.Trucks.ToList();
     }
+
+    /** Get by VehicleId **************************************************************************/
+    //Cars
+    public async Task<Vehicle?> GetVehicleByIdAsync(Guid vehicleIdToGetFromController)
+    {
+        Vehicle? foundVehicle = await vehicleContext.Vehicles.SingleOrDefaultAsync(v => v.VehicleId == vehicleIdToGetFromController);
+        return foundVehicle;
+    }
+
+    /** Update **************************************************************************/
+    //Car
+    public async Task<Vehicle?> UpdateVehicleAsync(Vehicle vehicleToUpdateFromVehicleService)
+    {
+        vehicleContext.Update(vehicleToUpdateFromVehicleService);
+        await vehicleContext.SaveChangesAsync();
+        return vehicleToUpdateFromVehicleService;
+
+    }
 }
