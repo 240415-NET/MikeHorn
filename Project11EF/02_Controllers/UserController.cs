@@ -5,11 +5,11 @@ namespace Project11EF.API.Controllers;
 
 [ApiController]
 [Route("User")]
-public class UserContoller : ControllerBase
+public class UserController : ControllerBase
 {
     private readonly IUserService userService;
 
-    public UserContoller(IUserService userServiceFromBuilder)
+    public UserController(IUserService userServiceFromBuilder)
     {
         userService = userServiceFromBuilder;
     }
